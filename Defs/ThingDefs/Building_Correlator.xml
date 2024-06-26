@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- maybe add VF for a fluid resource (computronium)? -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>MJ_CorrelatorNode</defName>
+    <label>Correlator Node</label>
+    <description>Integrated ratcores correlate and classify ambient noise, allowing rapid generation and evolution of large-scale simulations and security codes over multiple shifting frequencies. Correlator nodes are capable of suppressing harmful signals, boosting electronic function and opening the way to low-risk airborne travel.\n\nEach research bench can benefit from up to 8 correlator nodes.</description>
+    <graphicData>
+      <texPath>Things/Building/CorrelatorNode</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,6)</drawSize>
+    </graphicData>
+    <uiIconScale>2.5</uiIconScale>
+    <researchPrerequisites><li>VehicularAutonomy</li></researchPrerequisites>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.4</fillPercent>
+    <designationCategory>Misc</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <canOverlapZones>false</canOverlapZones>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>120</Mass>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <costList>
+      <Steel>120</Steel>
+      <Silver>50</Silver>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <ComponentRatcore>4</ComponentRatcore>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>400</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.08</ResearchSpeedFactor>
+          <WorkTableWorkSpeedFactor>0.08</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>8</maxSimultaneous>
+      </li>
+      <li Class="CompProperties_GiveHediffSeverity">
+        <hediff>MJ_CorrelatorHediff</hediff>
+        <range>8.9</range>
+        <severityPerSecond>0.002</severityPerSecond>
+        <allowMechs>false</allowMechs>
+      </li>
+      <li Class="CompProperties_CauseHediff_AoE" MayRequire="Ludeon.RimWorld.Biotech">
+        <range>8.9</range>
+        <onlyTargetMechs>true</onlyTargetMechs>
+        <hediff>MJ_MechSecurityHediff</hediff>
+        <activeSound>MechBooster_Working</activeSound>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>MJ_MechSecurityHediff</defName>
+    <label>secure link</label>
+    <description>This mechanoid's communications have been temporarily streamlined to better filter outside influences.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600</disappearsAfterTicks>
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets MayRequire="Ludeon.RimWorld.Biotech">
+          <BandwidthCost>-1</BandwidthCost>
+        </statOffsets>
+        <capMods><li>
+            <capacity>Consciousness</capacity>
+            <offset>0.10</offset>
+        </li></capMods>
+      </li>
+    </stages>
+    <isBad>false</isBad>
+  </HediffDef>
+
+</Defs>

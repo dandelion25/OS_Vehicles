@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TerrainDef>
+    <defName>MJ_StructureCell</defName>
+    <label>structure cell</label>
+    <description>A traversible scaffold of high stiffness elements in a metamatrix configuration. The uranium-polymer composite is engineered to last in harsh environments, rejecting surface filth and fouling by action of accumulated radiogenic charge. Collecting rods concentrate and modulate this charge, providing power and propulsion to vehicles passing over them. Structure grids both old and new can be spotted across the Rim due to their longevity and resistance to tampering.</description>
+    <texturePath>Terrain/Surfaces/StructureCell</texturePath>
+    <uiIconPath>Terrain/Surfaces/StructureCellIcon</uiIconPath>
+    <layerable>true</layerable>
+    <bridge>true</bridge>
+    <affordances>
+      <li>Light</li>
+      <li>Medium</li>
+      <li>Heavy</li>
+    </affordances>
+    <designationCategory>VF_Vehicles</designationCategory>
+    <fertility>0</fertility>
+    <avoidWander>true</avoidWander>     <!-- colonists should avoid stepping on structure grids! -->
+    <holdSnow>false</holdSnow>          <!-- no sno :) -->
+    <extraNonDraftedPerceivedPathCost>30</extraNonDraftedPerceivedPathCost>  <!-- water is 180; colonists prefer grid to water. -->
+    <extraDraftedPerceivedPathCost>10</extraDraftedPerceivedPathCost>         <!-- water is 18; colonists prefer grid to water. -->
+    <constructEffect>ConstructMetal</constructEffect>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>400</renderPrecedence>
+    <pathCost>5</pathCost>
+    <autoRebuildable>true</autoRebuildable>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <costList>
+      <Uranium>4</Uranium>
+      <Chemfuel>12</Chemfuel>
+    </costList>
+    <tags>
+      <li>Floor</li>
+    </tags>
+    <destroyOnBombDamageThreshold>120</destroyOnBombDamageThreshold>
+    <destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+    <destroyEffect>Bridge_Collapse</destroyEffect>
+    <destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+    <researchPrerequisites>
+      <li>StructureGrids</li>
+    </researchPrerequisites>
+    <filthAcceptanceMask>
+      <li>None</li>
+    </filthAcceptanceMask>
+    <modExtensions>
+      <li Class="OutlanderVehicles.TerrainExtension_CustomBridgeProps">
+        <loopPath>Terrain/Misc/StructureCellProps_Loop</loopPath>
+        <rightPath>Terrain/Misc/StructureCellProps_Right</rightPath>
+      </li>
+      <li Class="Vehicles.CustomCostDefModExtension">
+        <cost>0</cost>
+        <!-- use this for specific vehicles maybe <vehicles></vehicles> -->
+      </li>
+    </modExtensions>
+  </TerrainDef>
+</Defs>

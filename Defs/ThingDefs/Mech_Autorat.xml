@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Biotech ratcore acquisition method: the humble autorat -->
+
+<Defs>
+
+    <ThingDef Name="Mech_Autorat" ParentName="BaseMechanoid" MayRequire="Ludeon.RimWorld.Biotech">
+      <label>autorat</label>
+      <description>A small, partial mechanoid formed around a microelectronic interface and inwards-pointing autopistol with which it trains its behavior. While incapable of most work, it requires negligible bandwidth to control and will never go feral. For unknown reasons, autorats consistently acquire the capacity to perform food-related tasks during gestation.\n\nAutorat corpses can be rewired into ratcores at a fabrication bench.<description>
+      <descriptionHyperlinks>
+        <ThingDef>Component_Ratcore</ThingDef>
+      </descriptionHyperlinks>
+      <statBases>
+        <MarketValue>150</MarketValue>
+        <MoveSpeed>4.3</MoveSpeed>
+        <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+        <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+        <BandwidthCost MayRequire="Ludeon.RimWorld.Biotech">0</BandwidthCost>
+        <ControlTakingTime MayRequire="Ludeon.RimWorld.Biotech">6</ControlTakingTime>
+        <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+        <MechEnergyLossPerHP MayRequire="Ludeon.RimWorld.Biotech">0.1</MechEnergyLossPerHP>
+        <WastepacksPerRecharge MayRequire="Ludeon.RimWorld.Biotech">1</WastepacksPerRecharge>
+        <WorkSpeedGlobal MayRequire="Ludeon.RimWorld.Biotech">0.20</WorkSpeedGlobal>
+      </statBases>
+      <race>
+        <body>Mech_Light</body>
+        <intelligence>ToolUser</intelligence>
+        <thinkTreeMain>Mechanoid</thinkTreeMain>
+        <lifeStageAges>
+          <li>
+            <def>MechanoidFullyFormed</def>
+            <minAge>0</minAge>
+            <soundWounded>Pawn_Mech_WarUrchin_Wounded</soundWounded>
+            <soundDeath>Pawn_Mech_WarUrchin_Death</soundDeath>
+            <soundCall>Pawn_Mech_WarUrchin_Call</soundCall>
+          </li>
+        </lifeStageAges>
+        <baseBodySize>0.20</baseBodySize>
+        <mechWeightClass>Light</mechWeightClass>
+        <mechEnabledWorkTypes>
+          <li>Cooking</li>
+        </mechEnabledWorkTypes>
+        <baseHealthScale>2</baseHealthScale>
+      </race>
+      <comps Inherit="False">
+        <li Class="CompProperties_CanBeDormant" />
+        <li Class="CompProperties_WakeUpDormant">
+          <wakeUpOnDamage>true</wakeUpOnDamage>
+          <wakeUpCheckRadius>30</wakeUpCheckRadius>
+          <wakeUpSound>MechanoidsWakeUp</wakeUpSound>
+        </li>
+      </comps>
+      <butcherProducts>
+        <Steel>5</Steel>
+      </butcherProducts>
+      <tools>
+        <li>
+          <label>head</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>6</power>
+          <cooldownTime>2.6</cooldownTime>
+          <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+          <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        </li>
+      </tools>
+    </ThingDef>
+
+    <PawnKindDef Name="Mech_Autorat" ParentName="BaseMechanoidKind" MayRequire="Ludeon.RimWorld.Biotech">
+      <label>autorat</label>
+      <race>Mech_Autorat</race>
+      <weaponMoney>9999~9999</weaponMoney>
+      <combatPower>5</combatPower>
+      <weaponTags></weaponTags>
+      <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
+      <techHediffsMoney>9999~9999</techHediffsMoney>
+      <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
+      <isFighter>false</isFighter>
+      <lifeStages>
+        <li>
+          <bodyGraphicData>
+            <texPath>Things/Pawn/Mechanoid/Autorat</texPath>
+            <maskPath>Things/Pawn/Mechanoid/Autorat/AllegianceOverlays/Autorat</maskPath>
+            <shaderType>CutoutWithOverlay</shaderType>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>1.1</drawSize>
+          </bodyGraphicData>
+        </li>
+      </lifeStages>
+    </PawnKindDef>
+
+<RecipeDef ParentName="BaseMechanoidRecipe" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>Gestate_Autorat</defName>
+    <label>gestate an autorat</label>
+    <description>Gestate an autorat.</description>
+    <researchPrerequisite>VehicularAutonomy</researchPrerequisite>
+    <formingTicks>30000</formingTicks><!-- 12 hours -->
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gun_Autopistol</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <products>
+      <Mech_Autorat>1</Mech_Autorat>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>Mech_Autorat</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+</Defs>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MJShredder</defName>
+    <label>shredder charge</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Thump</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <explosionRadius>1.9</explosionRadius>
+      <stoppingPower>3</stoppingPower>
+      <speed>70</speed>
+      <soundExplode>ThumpCannon_Impact</soundExplode>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MJNeedleBattery</defName>
+    <label>needle shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/Needle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2.5</drawSize>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.75</armorPenetrationBase>
+      <stoppingPower>0.6</stoppingPower>
+      <speed>160</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MJHelot</defName>
+    <label>kinetic blast</label>
+    <graphicData>
+      <texPath>Things/Projectile/MJKineticBlast</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>3</drawSize>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>MJ_KineticForce</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <armorPenetrationBase>0.10</armorPenetrationBase>
+      <stoppingPower>4.0</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MJBasilisk</defName>
+    <label>basilisk slug</label>
+    <graphicData>
+      <texPath>Things/Projectile/ShellHighExplosive</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <flyOverhead>true</flyOverhead>
+      <damageDef>MJ_Impact</damageDef>
+      <damageAmountBase>120</damageAmountBase>
+      <armorPenetrationBase>0.5</armorPenetrationBase>
+      <explosionRadius>1.9</explosionRadius >
+      <stoppingPower>5</stoppingPower>
+      <speed>130</speed>
+      <arcHeightFactor>0.4</arcHeightFactor>
+      <screenShakeFactor>0.7</screenShakeFactor>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <preExplosionSpawnChance>0.4</preExplosionSpawnChance>
+      <preExplosionSpawnThingDef>SlagRubble</preExplosionSpawnThingDef>
+      <soundExplode>ThumpCannon_Impact</soundExplode>
+    </projectile>
+  </ThingDef>
+
+</Defs>

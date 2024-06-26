@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <SoundDef>
+    <defName>MJFlashNoiseLight</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>MJFlashNoise01</clipPath>
+          </li>
+        </grains>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>VehicleCabinetFiddleNoise</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>VehicleCabinetFiddleNoise</clipPath>
+          </li>
+        </grains>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>BasiliskCannonSound</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>BasiliskCannonSound</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>70~70</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>MJOscibeep</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>MJOscibeep</clipPath>
+          </li>
+        </grains>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>MJOscibeep2</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>MJOscibeep2</clipPath>
+          </li>
+        </grains>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  
+	<SoundDef>
+		<defName>MJ_EngineIgnition</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>MJIgnitionNoise</clipPath>
+					</li>
+				</grains>
+				<volumeRange>45~50</volumeRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>MJ_EngineCut</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>MJEngineCut</clipPath>
+					</li>
+				</grains>
+				<volumeRange>45~50</volumeRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>MJ_EngineNoiseLoopHeavy</defName>
+		<sustain>true</sustain>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<muteWhenPaused>True</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+					<clipPath>MJEngineNoisesHeavy</clipPath>
+					</li>
+				</grains>
+				<pitchRange>0.98~1</pitchRange>
+				<volumeRange>25~25</volumeRange>
+				<sustainAttack>2.5</sustainAttack>
+				<sustainRelease>2.5</sustainRelease>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>MJ_EngineNoiseLoopSoft</defName>
+		<sustain>true</sustain>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<muteWhenPaused>True</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+					<clipPath>MJEngineNoisesSoft</clipPath>
+					</li>
+				</grains>
+				<pitchRange>0.98~1</pitchRange>
+				<volumeRange>25~25</volumeRange>
+				<sustainAttack>2.5</sustainAttack>
+				<sustainRelease>2.5</sustainRelease>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>MJ_EngineNoiseLoopLight</defName>
+		<sustain>true</sustain>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<muteWhenPaused>True</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+					<clipPath>MJEngineNoisesLight</clipPath>
+					</li>
+				</grains>
+				<pitchRange>0.98~1</pitchRange>
+				<volumeRange>25~25</volumeRange>
+				<sustainAttack>2.5</sustainAttack>
+				<sustainRelease>2.5</sustainRelease>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>MJ_DynamoNoisesLight</defName>
+		<sustain>true</sustain>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<muteWhenPaused>True</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+					<clipPath>MJDynamoNoisesLight</clipPath>
+					</li>
+				</grains>
+				<pitchRange>0.98~1</pitchRange>
+				<volumeRange>25~25</volumeRange>
+				<sustainAttack>2.5</sustainAttack>
+				<sustainRelease>2.5</sustainRelease>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>MJ_DynamoNoisesMedium</defName>
+		<sustain>true</sustain>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<muteWhenPaused>True</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+					<clipPath>MJEngineNoisesLight</clipPath>
+					</li>
+				</grains>
+				<pitchRange>0.98~1</pitchRange>
+				<volumeRange>25~25</volumeRange>
+				<sustainAttack>2.5</sustainAttack>
+				<sustainRelease>2.5</sustainRelease>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>MJ_JetNoisesLight</defName>
+		<sustain>true</sustain>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<muteWhenPaused>True</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+					<clipPath>MJJetNoisesLight</clipPath>
+					</li>
+				</grains>
+				<pitchRange>2.98~1</pitchRange>
+				<volumeRange>12~25</volumeRange>
+				<sustainAttack>4</sustainAttack>
+				<sustainRelease>4</sustainRelease>
+			</li>
+		</subSounds>
+	</SoundDef>
+  
+</Defs>

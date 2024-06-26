@@ -1,0 +1,74 @@
+
+from: mechanoid shields (royalty)
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>25</radius>
+        <interceptAirProjectiles>true</interceptAirProjectiles>
+        <interceptGroundProjectiles>true</interceptGroundProjectiles>
+        <color>(0.6, 0.6, 0.6)</color>
+        <reactivateEffect>MortarShieldGenerator_Reactivate</reactivateEffect>
+        <activeSound>BulletShield_Ambience</activeSound>
+        <disarmedByEmpForTicks>1080</disarmedByEmpForTicks>
+        <!-- chargeIntervalTicks>600000</chargeIntervalTicks -->
+        <!-- chargeDurationTicks>60000</chargeDurationTicks -->
+      </li>
+    </comps>
+
+from: broadshield pack (royalty)
+    <building>
+      <claimable>false</claimable>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isEdifice>false</isEdifice>
+      <destroyEffecter>Broadshield_Burnout</destroyEffecter>
+    </building>
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>4.9</radius>
+        <interceptGroundProjectiles>true</interceptGroundProjectiles>
+        <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+        <interceptOutgoingProjectiles>false</interceptOutgoingProjectiles>
+        <color>(0.6, 0.6, 0.8)</color>
+        <idlePulseSpeed>3</idlePulseSpeed>
+        <minIdleAlpha>0.05</minIdleAlpha>
+        <disarmedByEmpForTicks>600</disarmedByEmpForTicks>
+        <activeSound>Broadshield_Ambience</activeSound>
+      </li>
+      <li Class="CompProperties_DestroyAfterDelay">
+        <delayTicks>1800</delayTicks>
+        <destroyMode>KillFinalize</destroyMode>
+        <countdownLabel>Burnout in</countdownLabel>
+      </li>
+    </comps>
+
+
+from: shield belt (core)
+    <statBases>
+      <Mass>3</Mass>
+      <WorkToMake>14000</WorkToMake>
+      <Flammability>0.4</Flammability>
+      <EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
+      <EnergyShieldEnergyMax>1.1</EnergyShieldEnergyMax>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Shield" />
+    </comps>
+
+
+from: legionary, medium mechanoid (biotech)
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>3</radius>
+        <interceptGroundProjectiles>true</interceptGroundProjectiles>
+        <color>(0.4, 0.4, 0.4)</color>
+        <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+        <activeSound>BulletShield_Ambience</activeSound>
+        <hitPoints>200</hitPoints>
+        <hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+        <chargeDurationTicks>5400</chargeDurationTicks><!-- 90s -->
+        <drawWithNoSelection>True</drawWithNoSelection>
+        <disarmedByEmpForTicks>1500</disarmedByEmpForTicks>
+        <gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
+      </li>
+    </comps>

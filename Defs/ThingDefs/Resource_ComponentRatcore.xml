@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=============== Base Components ====================-->
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ComponentRatcore</defName>
+    <label>ratcore</label>
+    <description>A partial mechanoid brain fitted with a microelectronic interface and inwards-facing autopistol with which it trains its behavior. Though crude, it is an effective approach to machine persuasion popular amongst waster programmers.</description>
+    <graphicData>
+      <texPath>Things/Item/ComponentRatcore/ComponentRatcore</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <MarketValue>120</MarketValue>
+      <Mass>1.2</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+
+<RecipeDef>
+    <defName>Make_ComponentRatcore</defName>
+    <label>construct ratcore assembly</label>
+    <description>Construct a ratcore assembly from dead mechanoids.</description>
+    <jobString>Making ratcore assembly.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>10000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Corpses</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gun_Autopistol</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>CorpsesMechanoid</li>
+      </categories>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+      <categories>
+        <li>CorpsesMechanoid</li>
+      </categories>
+      <specialFiltersToDisallow>
+        <li MayRequire="Ludeon.Rimworld.Biotech">AllowCorpsesMechFriendly</li>
+      </specialFiltersToDisallow>
+      <specialFiltersToAllow>
+        <li MayRequire="Ludeon.Rimworld.Biotech">AllowCorpsesMechEnemy</li>
+      </specialFiltersToAllow>
+    </defaultIngredientFilter>
+    <products>
+      <ComponentRatcore>1</ComponentRatcore>
+    </products>
+    <researchPrerequisite>VehicularAutonomy</researchPrerequisite>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+  </RecipeDef>
+
+<RecipeDef MayRequire="Ludeon.Rimworld.Biotech">
+    <defName>Make_ComponentRatcore_From_Autorat</defName>
+    <label>rewire autorat</label>
+    <description>Rewire an autorat into a ratcore assembly.</description>
+    <jobString>Making ratcore assembly.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>10000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Corpses</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Corpse_Mech_Autorat</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <ComponentRatcore>1</ComponentRatcore>
+    </products>
+    <researchPrerequisite>VehicularAutonomy</researchPrerequisite>
+    <skillRequirements>
+      <Crafting>6</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+  </RecipeDef>
+
+</Defs>

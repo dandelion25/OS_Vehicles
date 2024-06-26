@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>AccumulativeShaping</defName>
+    <label>metacrystalline shaping</label>
+    <description>Construct high-hardness components capable of retaining strength and toughness at scale.</description>
+    <tab>MJ_Outlander</tab>
+    <baseCost>2000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Fabrication</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>StructureGrids</defName>
+    <label>structure grids</label>
+    <description>Construct metallic grids capable of supporting heavy constructs and autonomous vehicles.</description>
+    <tab>MJ_Outlander</tab>
+    <baseCost>500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>AccumulativeShaping</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>VehicularAutonomy</defName>
+    <label>vehicular autonomy</label>
+    <description>Assemble ratcores and ratcore-based vehicles capable of autonomous movement and targeting. Mechanoid corpses and advanced components are required to assemble ratcores.</description>
+    <tab>MJ_Outlander</tab>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Fabrication</li>
+    </prerequisites>
+    <hiddenPrerequisites>
+      <li>GunTurrets</li>
+    </hiddenPrerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.40</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>FlightControl</defName>
+    <label>flight control</label>
+    <description>Develop advanced drives and navigation for sustained flight in hostile environments.</description>
+    <tab>MJ_Outlander</tab>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>VehicularAutonomy</li>
+      <li>AccumulativeShaping</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MJ_CorrelatorNode</li>
+    </requiredResearchFacilities>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.40</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

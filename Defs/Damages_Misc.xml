@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DamageDef>
+    <defName>MJ_Impact</defName>
+    <label>impact</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <isExplosive>true</isExplosive>
+    <deathMessage>{0} has been crushed to death by a large impact.</deathMessage>
+    <hediff>Crush</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Blunt</impactSoundType>
+    <armorCategory>Blunt</armorCategory>
+    <minDamageToFragment>30</minDamageToFragment>
+    <defaultDamage>60</defaultDamage>
+    <defaultStoppingPower>3.0</defaultStoppingPower>
+    <defaultArmorPenetration>0.40</defaultArmorPenetration>
+    <buildingDamageFactorImpassable>8</buildingDamageFactorImpassable>
+    <buildingDamageFactorPassable>4</buildingDamageFactorPassable>
+    <plantDamageFactor>1</plantDamageFactor>
+    <corpseDamageFactor>1</corpseDamageFactor>
+    <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+    <explosionHeatEnergyPerCell>5</explosionHeatEnergyPerCell>
+    <!-- <explosionCellMote>Mote_BlastDry</explosionCellMote> -->
+    <explosionCellFleck>BlastDry</explosionCellFleck>
+    <explosionColorCenter>(1, 1, 1, 0.9)</explosionColorCenter>
+    <explosionColorEdge>(1, 1, 1, 0.6)</explosionColorEdge>
+    <soundExplosion>BuildingDestroyed_Stone_Medium</soundExplosion>
+    <combatLogRules>Damage_Bomb</combatLogRules>
+  </DamageDef>
+
+  <DamageDef>
+    <defName>MJ_KineticForce</defName>
+    <label>impact</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been crushed to death.</deathMessage>
+    <hediff>Crush</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+    <impactSoundType>Blunt</impactSoundType>
+    <armorCategory>Blunt</armorCategory>
+    <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+  </DamageDef>
+
+</Defs>

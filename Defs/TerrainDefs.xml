@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TerrainDef>
+    <defName>MJ_StructureCell</defName>
+    <label>structure cell</label>
+    <description>Engineered scaffolds of composite metacrystalline material. Structure cells are engineered to withstand harsh environments, rejecting surface contaminants through action of radiogenic charge. Collecting rods accumulate and direct this charge, providing power and propulsion to vehicles passing over them. Long-lived and resistant to tampering, structure cells have been reverse-engineered numerous times from ancient examples across the rim.\n\nLike hazard tiles, structure cells deter pedestrian traffic.</description>
+    <texturePath>Terrain/Surfaces/StructureCell</texturePath>
+    <!-- is this needed or am imaking a mistake? <uiIconPath>Terrain/Surfaces/StructureCellIcon</uiIconPath> -->
+    <layerable>true</layerable>
+    <!-- what does this do even (mysterious) <bridge>true</bridge> -->
+    <affordances>
+      <li>Light</li>
+      <li>Medium</li>
+      <li>Heavy</li>
+    </affordances>
+    <designationCategory>VF_Vehicles</designationCategory>
+    <fertility>0</fertility>
+    <avoidWander>true</avoidWander>     <!-- colonists should avoid stepping on structure grids! -->
+    <holdSnow>false</holdSnow>          <!-- no sno :) -->
+    <extraNonDraftedPerceivedPathCost>30</extraNonDraftedPerceivedPathCost>  <!-- water is 180; colonists prefer grid to water. -->
+    <extraDraftedPerceivedPathCost>10</extraDraftedPerceivedPathCost>         <!-- water is 18; colonists prefer grid to water. -->
+    <constructEffect>ConstructMetal</constructEffect>
+    <!-- currently removed <terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded> -->
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>400</renderPrecedence>
+    <pathCost>3</pathCost>
+    <autoRebuildable>true</autoRebuildable>
+    <statBases>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <costList>
+      <Chemfuel>10</Chemfuel>
+      <Uranium>2</Uranium>
+    </costList>
+    <tags>
+      <li>Floor</li>
+    </tags>
+    <destroyOnBombDamageThreshold>120</destroyOnBombDamageThreshold>
+    <destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+    <destroyEffect>Bridge_Collapse</destroyEffect>
+    <destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+    <researchPrerequisites>
+      <li>StructureGrids</li>
+    </researchPrerequisites>
+    <filthAcceptanceMask>
+      <li>None</li>
+    </filthAcceptanceMask>
+    <modExtensions>
+      <li Class="OutlanderVehicles.TerrainExtension_CustomBridgeProps">
+        <loopPath>Terrain/Misc/StructureCellProps_Loop</loopPath>
+        <rightPath>Terrain/Misc/StructureCellProps_Right</rightPath>
+      </li>
+      <li Class="Vehicles.CustomCostDefModExtension">
+        <cost>1</cost>
+        <!-- use this for specific vehicles maybe <vehicles></vehicles> -->
+      </li>
+    </modExtensions>
+  </TerrainDef>
+
+  <TerrainDef ParentName="FloorBase">
+    <defName>MJ_HazardTile</defName>
+    <label>hazard tile</label>
+    <description>Hard polymer tiles with warning stripes. Pawns will try to avoid this tile when pathing.</description>
+    <texturePath>Terrain/Surfaces/HazardCell</texturePath>
+    <color>(140,140,140)</color>
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>70</renderPrecedence>
+    <isPaintable>true</isPaintable>
+    <designationCategory>VF_Vehicles</designationCategory>
+    <avoidWander>true</avoidWander>
+    <extraNonDraftedPerceivedPathCost>30</extraNonDraftedPerceivedPathCost>  <!-- ref: water is 180. -->
+    <extraDraftedPerceivedPathCost>3</extraDraftedPerceivedPathCost>        <!-- ref: water is 18. -->
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>75</renderPrecedence>
+    <pathCost>1</pathCost>
+    <statBases>
+      <Beauty>-1</Beauty>
+      <WorkToBuild>200</WorkToBuild>
+      <CleaningTimeFactor>0.8</CleaningTimeFactor>
+    </statBases>
+    <costList>=
+      <Chemfuel>2</Chemfuel>
+      <Steel>1</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>Fabrication</li>
+    </researchPrerequisites>
+    <modExtensions>
+      <li Class="Vehicles.CustomCostDefModExtension">
+        <cost>1</cost>
+        <!-- use this for specific vehicles maybe <vehicles></vehicles> -->
+      </li>
+    </modExtensions>
+  </TerrainDef>
+
+</Defs>

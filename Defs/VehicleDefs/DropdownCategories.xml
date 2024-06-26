@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DesignatorDropdownGroupDef>
+		<defName>MJ_Outlander_VehicleSeriesB</defName>
+	</DesignatorDropdownGroupDef>
+	<DesignatorDropdownGroupDef>
+		<defName>MJ_Outlander_VehicleSeriesH</defName>
+	</DesignatorDropdownGroupDef>
+	<DesignatorDropdownGroupDef>
+		<defName>MJ_Outlander_VehicleSeriesS</defName>
+	</DesignatorDropdownGroupDef>
+</Defs>

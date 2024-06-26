@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>	
+	
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+    <defName>BulwarkBlueprint</defName>
+    <label>Bulwark</label>
+    <designatorDropdown>MJ_Outlander_VehicleSeriesB</designatorDropdown>
+    <description>A tall, bulky construction weighed down with heavy armor and armament. Partly inspired by mechanoid centipedes, the Bulwark uses powered rollers in place of tracks - these travel extremely slowly off of paved surfaces, but take up very little space and are difficult to disable.\n\nFiring explosive shells from its shredder autocannon, the Bulwark specializes in fighting bunched-up enemies in tight spaces.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+    <graphicData>
+      <texPath>Things/Vehicles/Bulwark/Bulwark</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+	
+    <size>(3,3)</size>
+	
+    <statBases>
+      <MaxHitPoints>2500</MaxHitPoints>
+      <WorkToBuild>14500</WorkToBuild>
+      <Flammability>0.05</Flammability>
+    </statBases>
+	
+    <researchPrerequisites>
+      <li>AccumulativeShaping</li>
+      <li>HeavyTurrets</li>
+    </researchPrerequisites>
+	
+    <constructionSkillPrerequisite>11</constructionSkillPrerequisite>
+    <costList>
+      <Steel>150</Steel>
+      <Uranium>210</Uranium>
+      <ComponentIndustrial>12</ComponentIndustrial>
+      <ReinforcedBarrel>1</ReinforcedBarrel>
+    </costList>
+    <designationCategory>VF_Vehicles</designationCategory>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <thingToSpawn>Bulwark</thingToSpawn>
+  </Vehicles.VehicleBuildDef>
+	
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>Bulwark</defName>
+		<label>Bulwark</label>
+		<description>A tall, bulky construction weighed down with heavy armor and armament. Partly inspired by mechanoid centipedes, the Bulwark uses powered rollers in place of tracks - these travel extremely slowly off of paved surfaces, but take up very little space and are difficult to disable.\n\nFiring explosive shells from its shredder autocannon, the Bulwark specializes in fighting bunched-up enemies in tight spaces.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Bulwark/Bulwark</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		
+		<fillPercent>1</fillPercent>
+		
+		<buildDef>BulwarkBlueprint</buildDef>
+		
+		<size>(3, 3)</size>
+		
+		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
+		<vehicleCategory>Combat</vehicleCategory>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Land</vehicleType>
+		
+		<statBases>
+			<ArmorRating_Blunt>0.9</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.1</Flammability>
+			<MarketValue>2200</MarketValue>
+		</statBases>
+		
+		<vehicleStats>
+			<Mass>1500</Mass>
+			<MoveSpeed>3.3</MoveSpeed>
+			<CargoCapacity>100</CargoCapacity>
+			<RepairRate>2.0</RepairRate>
+			<AccelerationRate MayRequire="oskarpotocki.vanillavehiclesexpanded">0.10</AccelerationRate>
+		</vehicleStats>
+		
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start><stop>IgnitionOff</stop>
+				<value>MJ_EngineNoiseLoopHeavy</value>
+			</li>
+		</soundSustainersOnEvent>
+
+		<soundOneShotsOnEvent Inherit = "False">
+			<li><key>PawnEntered</key><value>Shuttle_PawnLoaded</value></li>
+			<li><key>PawnExited</key><value>Shuttle_PawnExit</value></li>
+			<li><key>IgnitionOn</key><value>MJ_EngineIgnition</value></li>
+      			<li><key>IgnitionOff</key><value>MJ_EngineCut</value></li>
+		</soundOneShotsOnEvent>
+		
+		<race>
+			<baseBodySize>4.5</baseBodySize>
+		</race>
+		
+		<properties>
+			<manhunterTargetsVehicle>true</manhunterTargetsVehicle>
+			<offRoadMultiplier>0.5</offRoadMultiplier>
+			<customRoadCosts AssignDefaults = "0.5" />
+			<customSnowCategoryTicks>
+				<Dusting>4</Dusting>
+				<Thin>8</Thin>
+				<Medium>16</Medium>
+				<Thick>24</Thick>
+			</customSnowCategoryTicks>
+			<winterSpeedMultiplier>1</winterSpeedMultiplier>
+			<worldSpeedMultiplier>2</worldSpeedMultiplier>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 2)</li>
+			</vehicleJobLimitations>
+			
+			<roles>
+				<li>
+					<key>driver</key>
+					<label>Driver-Gunner</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					
+					<handlingTypes>
+						<li>Movement</li>
+						<li>Turret</li>
+					</handlingTypes>
+
+					<turretIds>
+						<li>mainTurret</li>
+					</turretIds>
+				</li>
+				<li>
+					<key>gunner</key>
+					<label>Commander</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					
+					<handlingTypes>Turret</handlingTypes>
+					
+					<turretIds>
+						<li>mgCupola</li>
+					</turretIds>
+				</li>
+			</roles>
+		</properties>
+		
+		<components>
+			<li>
+				<key>Engine</key>
+				<label>Engine</label>
+				<health>120</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>3</radius>
+						<damageDef>Bomb</damageDef>
+					</li>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(0, -1)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftTrack</key>
+				<label>Left Rollers</label>
+				<health>400</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>0.72</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.96</ArmorRating_Sharp>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightTrack</key>
+				<label>Right Rollers</label>
+				<health>400</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>0.72</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.96</ArmorRating_Sharp>
+				</armor>
+					
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>Transmission</key>
+				<label>Transmission</label>
+				<health>100</health>
+				<depth>Internal</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontArmorPlating</key>
+				<label>Front Armor Plating</label>
+				<health>600</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>1.28</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.12</ArmorRating_Sharp>
+				</armor>
+				
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>LeftArmorPlating</key>
+				<label>Left Armor Plating</label>
+				<health>400</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.98</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.02</ArmorRating_Sharp>
+				</armor>
+				
+				<hitbox>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>RightArmorPlating</key>
+				<label>Right Armor Plating</label>
+				<health>400</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.98</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.02</ArmorRating_Sharp>
+				</armor>
+				
+				<hitbox>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>BackArmorPlating</key>
+				<label>Rear Armor Plating</label>
+				<health>400</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>1.28</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.12</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>Chemtank</key>
+				<label>Chemtank</label>
+				<health>100</health>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(0, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li>
+				<key>Dashboard</key>
+				<label>Dashboard</label>
+				<health>50</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>SteeringApparatus</key>
+				<label>Steering Apparatus</label>
+				<health>50</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>Alternator</key>
+				<label>Alternator</label>
+				<health>50</health>
+				<depth>Internal</depth>
+			</li>
+			<li>
+				<key>HullPlating</key>
+				<label>Hull Plating</label>
+				<health>200</health>
+				<depth>External</depth>
+				<hitWeight>10</hitWeight>
+				
+				<armor>
+					<ArmorRating_Blunt>0.89</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.15</ArmorRating_Sharp>
+				</armor>
+			</li>
+		</components>
+
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>50</fuelConsumptionRate>
+				<fuelCapacity>100</fuelCapacity>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>Bulwark_MainTurret</turretDef>
+						
+						<renderProperties>
+							<north>(0.15, 1.45)</north>
+							<south>(-0.2, -0.9)</south>
+							<east>(1.3, 0.5)</east>
+						</renderProperties>
+						
+						<gizmoLabel>Autocannon</gizmoLabel>
+						
+						<angleRestricted>(290,70)</angleRestricted>
+						<aimPieOffset>(0, 0.45)</aimPieOffset>
+						<key>mainTurret</key>
+					</li>
+					<li>
+						<turretDef>SharedMGCupola</turretDef>
+						
+						<renderProperties>
+							<north>(0, 0.55)</north>
+							<south>(0, 0.10)</south>
+							<east>(-0.05, 0.525)</east>
+						</renderProperties>
+						
+						<gizmoLabel>Machine Gun</gizmoLabel>
+						
+						<angleRestricted/>
+						<aimPieOffset>(0, 0.3)</aimPieOffset>
+						
+						<key>mgCupola</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+	
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>Bulwark_MainTurret</defName>
+		<label>Shredder Cannon</label>
+		<description>A magazine-fed autocannon firing polymer-cased chemcharges in rapid succession.</description>
+		
+		<turretType>Rotatable</turretType>
+		<shotSound>Shot_Autocannon</shotSound>
+		<reloadSound>Interact_SMG</reloadSound>
+		
+		<projectile>Bullet_MJShredder</projectile>
+		<reloadTimer>4.6</reloadTimer>
+		<warmUpTimer>2.1</warmUpTimer>
+		<magazineCapacity>15</magazineCapacity>
+		<chargePerAmmoCount>5</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.5</rotationSpeed>
+		
+		<restrictionType>Vehicles.TurretRestrictions_Stationary</restrictionType>
+		<projectileOffset>1.25</projectileOffset>
+		<hitFlags>IntendedTarget</hitFlags>
+		<maxRange>30.9</maxRange>
+		<minRange>1</minRange>
+		
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
+		
+		<recoil>
+			<distanceTotal>0.1</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.85</speedMultiplierPostRecoil>
+		</recoil>
+		
+		<vehicleRecoil>
+			<distanceTotal>0.05</distanceTotal>
+			<distancePerTick>0.025</distancePerTick>
+			<speedMultiplierPostRecoil>0.45</speedMultiplierPostRecoil>
+		</vehicleRecoil>
+		
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<label>Single Shot</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>5</shotsPerBurst>
+				<ticksBetweenShots>20</ticksBetweenShots>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<spreadRadius>2</spreadRadius>
+				<label>Suppression</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Bulwark/Bulwark_Turret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(3, 3)</drawSize>
+		</graphicData>
+		
+		<ammunition>
+			<thingDefs>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</ammunition>
+		
+		<motes>
+			<li>
+				<cycles>1</cycles>
+				<moteDef>Mote_CannonFlash</moteDef>
+				<animationType>Reset</animationType>
+			</li>
+		</motes>
+	</Vehicles.VehicleTurretDef>
+
+</Defs>

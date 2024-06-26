@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Patches for def "GroundPenetratingScanner" and "LongRangeMineralScanner" in "Core" -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GroundPenetratingScanner"]/comps/li[@Class="CompProperties_AffectedByFacilities"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GroundPenetratingScanner"]/comps</xpath>
+      <value>
+        <li Class="CompProperties_AffectedByFacilities">
+          <linkableFacilities />
+        </li>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GroundPenetratingScanner"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+    <value>
+      <li>MJ_CorrelatorNode</li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="LongRangeMineralScanner"]/comps/li[@Class="CompProperties_AffectedByFacilities"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="LongRangeMineralScanner"]/comps</xpath>
+      <value>
+        <li Class="CompProperties_AffectedByFacilities">
+          <linkableFacilities />
+        </li>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="LongRangeMineralScanner"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+    <value>
+      <li>MJ_CorrelatorNode</li>
+    </value>
+  </Operation>
+
+  <!-- Patches for def "HiTechResearchBench" in "Core" -->
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="HiTechResearchBench"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+    <value>
+      <li>MJ_CorrelatorNode</li>
+    </value>
+  </Operation>
+
+  <!-- Patches for def "FabricationBench" in "Core" -->
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="FabricationBench"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+    <value>
+      <li>MJ_CorrelatorNode</li>
+    </value>
+  </Operation>
+
+</Patch>

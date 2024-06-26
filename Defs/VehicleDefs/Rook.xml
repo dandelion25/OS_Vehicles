@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>	
+	
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+    <defName>RookBlueprint</defName>
+    <label>Rook</label>
+    <description>A versatile hauler and troop transport capable of crossing over difficult terrain. A pintle-mounted smoke launcher provides a measure of security for disembarking passengers, and a thick steel plow protects its frontal arc from small arms fire.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Passenger x4\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+    <graphicData>
+      <texPath>Things/Vehicles/Rook/Rook</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+	
+    <size>(2,3)</size>
+	
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <WorkToBuild>8500</WorkToBuild>
+      <Flammability>0.05</Flammability>
+    </statBases>
+	
+    <researchPrerequisites>
+      <li>Fabrication</li>
+    </researchPrerequisites>
+	
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <designationCategory>VF_Vehicles</designationCategory>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <thingToSpawn>Vehicle_Rook</thingToSpawn>
+  </Vehicles.VehicleBuildDef>
+	
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>Vehicle_Rook</defName>
+		<label>Rook</label>
+		<description>A versatile hauler and troop transport capable of crossing over difficult terrain. A pintle-mounted smoke launcher provides a measure of security for disembarking passengers, and a thick steel plow protects its frontal arc from small arms fire.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Passenger x4\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Rook/Rook</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		
+		<fillPercent>0.8</fillPercent>
+		
+		<buildDef>HorsemanBlueprint</buildDef>
+		
+		<size>(2, 3)</size>
+		
+		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
+		<vehicleCategory>Transport</vehicleCategory>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Land</vehicleType>
+		
+		<statBases>
+			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1.1</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.1</Flammability>
+			<MarketValue>850</MarketValue>
+		</statBases>
+		
+		<vehicleStats>
+			<Mass>550</Mass>
+			<MoveSpeed>9.4</MoveSpeed>
+			<CargoCapacity>450</CargoCapacity>
+			<RepairRate>0.8</RepairRate>
+			<AccelerationRate MayRequire="oskarpotocki.vanillavehiclesexpanded">0.35</AccelerationRate>
+		</vehicleStats>
+		
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start><stop>IgnitionOff</stop>
+				<value>MJ_EngineNoiseLoopLight</value>
+			</li>
+		</soundSustainersOnEvent>
+
+		<soundOneShotsOnEvent Inherit = "False">
+			<li><key>PawnEntered</key><value>Shuttle_PawnLoaded</value></li>
+			<li><key>PawnExited</key><value>Shuttle_PawnExit</value></li>
+			<li><key>IgnitionOn</key><value>MJ_EngineIgnition</value></li>
+      			<li><key>IgnitionOff</key><value>MJ_EngineCut</value></li>
+		</soundOneShotsOnEvent>
+		
+		<race>
+			<baseBodySize>4.5</baseBodySize>
+		</race>
+		
+		<properties>
+			<diagonalRotation>true</diagonalRotation>
+			<customRoadCosts AssignDefaults = "0.5" />
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 2)</li>
+			</vehicleJobLimitations>
+			
+			<roles>
+				<li>
+					<key>driver</key>
+					<label>Driver</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					
+					<handlingTypes>
+						<li>Movement</li>
+						<li>Turret</li>
+					</handlingTypes>
+					<hitbox><cells><li>(0, 1)</li></cells></hitbox>
+					<turretIds>
+						<li>mainTurret</li>
+					</turretIds>
+				</li>
+				<li>
+					<key>passenger_1</key>
+					<label>Passenger</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<pawnRenderer>
+						<layerNorth>1</layerNorth><layerSouth>2</layerSouth><layerEast>1</layerEast>
+						<angleNorthEast>0</angleNorthEast><angleSouthEast>0</angleSouthEast>
+						<northEast>East</northEast><southEast>East</southEast>
+						<southWest>West</southWest><northWest>West</northWest>
+						<drawOffsetNorth>(-0.4, 0, 0.3)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.4, 0, 0.7)</drawOffsetSouth>
+						<drawOffsetEast>(-0.4, 0, 0.7)</drawOffsetEast>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passenger_2</key>
+					<label>Passenger</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<pawnRenderer>
+						<layerNorth>1</layerNorth><layerSouth>2</layerSouth><layerEast>1</layerEast>
+						<angleNorthEast>0</angleNorthEast><angleSouthEast>0</angleSouthEast>
+						<northEast>East</northEast><southEast>East</southEast>
+						<southWest>West</southWest><northWest>West</northWest>
+						<drawOffsetNorth>(0.4, 0, 0.3)</drawOffsetNorth>
+						<drawOffsetSouth>(0.4, 0, 0.7)</drawOffsetSouth>
+						<drawOffsetEast>(-0.4, 0, 0.3)</drawOffsetEast>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passenger_3</key>
+					<label>Passenger</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<pawnRenderer>
+						<layerNorth>2</layerNorth><layerSouth>1</layerSouth><layerEast>1</layerEast>
+						<angleNorthEast>0</angleNorthEast><angleSouthEast>0</angleSouthEast>
+						<northEast>East</northEast><southEast>East</southEast>
+						<southWest>West</southWest><northWest>West</northWest>
+						<drawOffsetNorth>(-0.4, 0, -0.2)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.4, 0, 1.1)</drawOffsetSouth>
+						<drawOffsetEast>(-1, 0, 0.7)</drawOffsetEast>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passenger_4</key>
+					<label>Passenger</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<pawnRenderer>
+						<layerNorth>2</layerNorth><layerSouth>1</layerSouth><layerEast>1</layerEast>
+						<angleNorthEast>0</angleNorthEast><angleSouthEast>0</angleSouthEast>
+						<northEast>East</northEast><southEast>East</southEast>
+						<southWest>West</southWest><northWest>West</northWest>
+						<drawOffsetNorth>(0.4, 0, -0.2)</drawOffsetNorth>
+						<drawOffsetSouth>(0.4, 0, 1.1)</drawOffsetSouth>
+						<drawOffsetEast>(-1, 0, 0.3)</drawOffsetEast>
+					</pawnRenderer>
+				</li>
+			</roles>
+			<customSnowCategoryTicks AssignDefaults = "0"/>
+			<winterSpeedMultiplier>1</winterSpeedMultiplier>
+			<worldSpeedMultiplier>1.5</worldSpeedMultiplier>
+			<offRoadMultiplier>1</offRoadMultiplier>
+		</properties>
+		
+		<components>
+			<li>
+				<key>Engine</key>
+				<label>Engine</label>
+				<health>90</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>3</radius>
+						<damageDef>Bomb</damageDef>
+					</li>
+				</reactors>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>frontleftwheel</key>
+				<label>Front Left Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(0, 1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>frontrightwheel</key>
+				<label>Front Right Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, 1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>middlefrontleftwheel</key>
+				<label>Mid Front Left Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(0, 0)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>middlefrontrightwheel</key>
+				<label>Mid Front Left Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, 0)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>middlerearleftwheel</key>
+				<label>Mid Rear Left Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(0, 0)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>middlerearrightwheel</key>
+				<label>Mid Rear Right Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, 0)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>rearleftwheel</key>
+				<label>Rear Left Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(0, -1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>rearrightwheel</key>
+				<label>Rear Right Wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, -1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>Transmission</key>
+				<label>Transmission</label>
+				<health>80</health>
+				<depth>Internal</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+						<li>(1, 0)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>Chemtank</key>
+				<label>Chemtank</label>
+				<health>120</health>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(0, -1)</li>
+						<li>(1, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li>
+				<key>Display</key>
+				<label>Display</label>
+				<health>50</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>Command Panel</key>
+				<label>Command Panel</label>
+				<health>50</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>Transformer</key>
+				<label>Transformer</label>
+				<health>50</health>
+				<depth>Internal</depth>
+			</li>
+			<li>
+				<key>HullPlating</key>
+				<label>Hull Plating</label>
+				<health>120</health>
+				<depth>External</depth>
+				<hitWeight>20</hitWeight>
+				
+				<armor>
+					<ArmorRating_Blunt>0.89</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.15</ArmorRating_Sharp>
+				</armor>
+			</li>
+			<li>
+				<key>PlowRig</key>
+				<label>Plow Rig</label>
+				<health>300</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>1.30</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.45</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<cells>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</cells>
+				</hitbox>
+			</li>
+		</components>
+
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>16</fuelConsumptionRate>
+				<fuelCapacity>80</fuelCapacity>
+				<fuelConsumptionWorldMultiplier>0.5</fuelConsumptionWorldMultiplier>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>Rook_Turret</turretDef>
+						
+						<renderProperties>
+							<north>(0, 1.00)</north>
+							<south>(0, -0.2)</south>
+							<east>(0.80, 0.40)</east>
+						</renderProperties>
+						
+						<gizmoLabel>Smoke Launcher</gizmoLabel>
+						
+						<aimPieOffset>(0, 0.10)</aimPieOffset>
+						<angleRestricted>(290,70)</angleRestricted>
+						<key>mainTurret</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+	
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>Rook_Turret</defName>
+		<label>Rook Smoke Launcher</label>
+		<description>A revolving smoke launcher on a pintle.</description>
+		
+		<turretType>Rotatable</turretType>
+		<shotSound>Shot_IncendiaryLauncher</shotSound>
+		<reloadSound>Interact_Rifle</reloadSound>
+		
+		<projectile>Bullet_SmokeLauncher</projectile>
+		<reloadTimer>4.5</reloadTimer>
+		<warmUpTimer>0.5</warmUpTimer>
+		<magazineCapacity>3</magazineCapacity>
+		<chargePerAmmoCount>10</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.5</rotationSpeed>
+		
+		<projectileOffset>0.15</projectileOffset>
+		<hitFlags>IntendedTarget</hitFlags>
+		<maxRange>24.9</maxRange>
+		<minRange>0.9</minRange>
+		
+		<attachProjectileFlag>MJ_HighBullet</attachProjectileFlag>
+		
+		<recoil>
+			<distanceTotal>0.1</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		
+		<vehicleRecoil>
+			<distanceTotal>0.0</distanceTotal>
+			<distancePerTick>0.02</distancePerTick>
+			<speedMultiplierPostRecoil>0.08</speedMultiplierPostRecoil>
+		</vehicleRecoil>
+		
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>180</ticksBetweenBursts>
+				<spreadRadius>1</spreadRadius>
+				<label>Single Shot</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>40</ticksBetweenShots>
+				<ticksBetweenBursts>360</ticksBetweenBursts>
+				<spreadRadius>2.9</spreadRadius>
+				<label>Volley Fire</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Rook/Rook_Turret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(4, 4)</drawSize>
+		</graphicData>
+		
+		<ammunition>
+			<thingDefs>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+</Defs>

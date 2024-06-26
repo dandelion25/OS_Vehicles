@@ -1,0 +1,26 @@
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MJImpactDebris</defName>
+    <label>splinter</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Flicker</graphicClass>
+      <drawSize>0.4</drawSize>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>MJ_Impact</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <speed>80</speed>
+      <stoppingPower>2</stoppingPower>
+      <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+      <preExplosionSpawnThingDef>Bullet_MJImpactDebris</preExplosionSpawnThingDef>
+      <soundExplode>ThumpCannon_Impact</soundExplode>
+    </projectile>
+  </ThingDef>
+
+      <li Class="CompProperties_CauseHediff_AoE">
+        <range>9.9</range>
+        <onlyTargetMechs>true</onlyTargetMechs>
+        <hediff>MechBoost</hediff>
+        <!-- <activeSound>MechBooster_Working</activeSound> --!>
+      </li>

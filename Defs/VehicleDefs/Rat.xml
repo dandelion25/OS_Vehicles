@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>	
+	
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+    <defName>MJ_RatBlueprint</defName>
+    <label>Rat</label>
+    <description>A motorised carriage designed to power and carry a robotic sentry turret. Small, cheap, and poorly armored, it is unlikely to provide much survivability; most are created as mobile defences, or with the intent of being scattered across a battlefield.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Passenger x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+    <graphicData>
+      <texPath>Things/Vehicles/Rat/Rat</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+	
+    <size>(1,2)</size>
+	
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5500</WorkToBuild>
+      <Flammability>0.05</Flammability>
+    </statBases>
+	
+    <researchPrerequisites>
+      <li>VehicularAutonomy</li>
+    </researchPrerequisites>
+	
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <ComponentRatcore>1</ComponentRatcore>
+      <Chemfuel>50</Chemfuel>
+    </costList>
+    <designationCategory>VF_Vehicles</designationCategory>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <thingToSpawn>MJ_Rat</thingToSpawn>
+  </Vehicles.VehicleBuildDef>
+	
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>MJ_Rat</defName>
+		<label>Rat</label>
+		<description>A motorised carriage designed to power and carry a robotic sentry turret. Small, cheap, and poorly armored, it is unlikely to provide much survivability; most are created as mobile defences, or with the intent of being scattered across a battlefield.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Rat/Rat</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		
+		<fillPercent>1</fillPercent>
+		
+		<buildDef>MJ_RatBlueprint</buildDef>
+		
+		<size>(1, 2)</size>
+		
+		<vehicleMovementPermissions>NoDriverNeeded</vehicleMovementPermissions>
+		<vehicleCategory>Combat</vehicleCategory>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Land</vehicleType>
+		
+		<statBases>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.9</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.1</Flammability>
+			<MarketValue>400</MarketValue>
+		</statBases>
+		
+		<vehicleStats>
+			<Mass>120</Mass>
+			<MoveSpeed>7.4</MoveSpeed>
+			<CargoCapacity>40</CargoCapacity>
+			<RepairRate>1.0</RepairRate>
+			<AccelerationRate MayRequire="oskarpotocki.vanillavehiclesexpanded">0.20</AccelerationRate>
+		</vehicleStats>
+
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start><stop>IgnitionOff</stop>
+				<value>MJ_EngineNoiseLoopLight</value>
+			</li>
+		</soundSustainersOnEvent>
+
+		<soundOneShotsOnEvent Inherit = "False">
+		<li>
+			<key>PawnEntered</key>
+			<value>Shuttle_PawnLoaded</value>
+		</li>
+		<li>
+			<key>PawnExited</key>
+			<value>Shuttle_PawnExit</value>
+		</li>
+		<li>
+			<key>IgnitionOn</key>
+			<value>Pawn_Mech_Scyther_Call</value>
+		</li>
+		<li>
+			<key>IgnitionOff</key>
+			<value>Pawn_Mech_Scyther_Call</value>
+		</li>
+		</soundOneShotsOnEvent>
+		
+		<race>
+			<baseBodySize>1.6</baseBodySize>
+		</race>
+		
+		<properties>
+			
+			<customRoadCosts AssignDefaults = "0.7" />
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 1)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>passenger</key>
+					<label>Passenger</label>
+					<slots>1</slots>
+				</li>
+			</roles>
+		</properties>
+		
+		<components>
+			<li>
+				<key>Engine</key>
+				<label>Engine</label>
+				<health>55</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>3</radius>
+						<damageDef>Bomb</damageDef>
+					</li>
+				</reactors>
+				
+				<hitbox><side>Front</side></hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftTrack</key>
+				<label>Left Track</label>
+				<health>40</health>
+				<depth>External</depth>
+				
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightTrack</key>
+				<label>Right Track</label>
+				<health>40</health>
+				<depth>External</depth>
+					
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>Transmission</key>
+				<label>Transmission</label>
+				<health>30</health>
+				<depth>Internal</depth>
+				
+				<hitbox><side>Front</side></hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontArmorPlating</key>
+				<label>Front Armor Plating</label>
+				<health>40</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.78</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.72</ArmorRating_Sharp>
+				</armor>
+				
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>LeftArmorPlating</key>
+				<label>Left Armor Plating</label>
+				<health>60</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.78</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.72</ArmorRating_Sharp>
+				</armor>
+				
+				<hitbox>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>RightArmorPlating</key>
+				<label>Right Armor Plating</label>
+				<health>60</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.78</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.72</ArmorRating_Sharp>
+				</armor>
+				
+				<hitbox>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>BackArmorPlating</key>
+				<label>Rear Armor Plating</label>
+				<health>40</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>0.78</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>Chemtank</key>
+				<label>Chemtank</label>
+				<health>30</health>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+				</reactors>
+				
+				<hitbox><side>Back</side></hitbox>
+			</li>
+			<li>
+				<key>Dashboard</key>
+				<label>Dashboard</label>
+				<health>20</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>SteeringApparatus</key>
+				<label>Steering Apparatus</label>
+				<health>20</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>Alternator</key>
+				<label>Alternator</label>
+				<health>20</health>
+				<depth>Internal</depth>
+			</li>
+			<li>
+				<key>HullPlating</key>
+				<label>Hull Plating</label>
+				<health>40</health>
+				<depth>External</depth>
+				<hitWeight>10</hitWeight>
+				
+				<armor>
+					<ArmorRating_Blunt>0.78</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+				</armor>
+			</li>
+		</components>
+
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>20</fuelConsumptionRate>
+				<fuelCapacity>20</fuelCapacity>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>SharedMicroturret</turretDef>
+						
+						<renderProperties>
+							<north>(0, 0.4)</north>
+							<south>(0, -0.05)</south>
+							<east>(0.35, 0.4)</east>
+						</renderProperties>
+						
+						<gizmoLabel>Mini-turret</gizmoLabel>
+						<aimPieOffset>(0, 0.35)</aimPieOffset>
+						<key>mainTurret</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+</Defs>

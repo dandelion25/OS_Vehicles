@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<Vehicles.CustomHitFlags>
+		<defName>MJ_HighBullet</defName>
+		<minFillPercent>0.8</minFillPercent>
+		<hitThroughPawns>true</hitThroughPawns>
+	</Vehicles.CustomHitFlags>
+
+	<Vehicles.CustomHitFlags>
+		<defName>MJ_FlatBullet</defName>
+		<minFillPercent>0.4</minFillPercent>
+		<hitThroughPawns>false</hitThroughPawns>
+	</Vehicles.CustomHitFlags>
+
+	<Vehicles.CustomHitFlags>
+		<defName>MJ_LowBullet</defName>
+		<minFillPercent>0.1</minFillPercent>
+		<hitThroughPawns>false</hitThroughPawns>
+	</Vehicles.CustomHitFlags>
+
+</Defs>

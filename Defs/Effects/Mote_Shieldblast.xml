@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ShieldBlast</defName>
+		<thingClass>Vehicles.MoteCannonPlume</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.05</fadeInTime>
+			<solidTime>0.01</solidTime>
+			<fadeOutTime>0.25</fadeOutTime>
+			<growthRate>0.3</growthRate>
+		</mote>
+		<graphicData>
+			<graphicClass>Vehicles.Graphic_Animate</graphicClass>
+			<texPath>Things/Mote/MJShieldBlast</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+	</ThingDef>
+</Defs>
