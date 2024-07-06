@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=============== Base Components ====================-->
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ComponentRatcore</defName>
+    <label>ratcore</label>
+    <description>A partial mechanoid brain fitted with a microelectronic interface and motivator component with which it trains its behavior. Though limited in flexibility, ratcore assemblies are an effective approach to machine persuasion popularized by waster programmers.</description>
+    <graphicData>
+      <texPath>Things/Item/ComponentRatcore/ComponentRatcore</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <MarketValue>120</MarketValue>
+      <Mass>1.2</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+
+</Defs>

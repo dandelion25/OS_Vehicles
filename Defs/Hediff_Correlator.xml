@@ -15,7 +15,7 @@
     </comps>
     <stages>
       <li><label>initial</label><becomeVisible>false</becomeVisible></li>
-      <li><label>initial</label><minSeverity>0.04</minSeverity>
+      <li><label>initial</label><minSeverity>0.05</minSeverity>
         <capMods><li>
             <capacity>Consciousness</capacity>
             <offset>0.05</offset>

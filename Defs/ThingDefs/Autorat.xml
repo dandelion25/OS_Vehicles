@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Biotech ratcore acquisition method: the humble autorat -->
+
+<Defs>
+
+    <ThingDef ParentName="LightMechanoid" MayRequire="Ludeon.RimWorld.Biotech">
+      <defName>Mech_Autorat</defName>
+      <label>autorat</label>
+      <description>A small  mechanoid formed around a microelectronic interface and motivator circuit with which it trains its behavior. While incapable of most work, it requires negligible bandwidth to control and will almost never go feral. For unknown reasons, autorats consistently acquire the capacity to perform food-related tasks during gestation.\n\nAutorat wrecks can be constructed into ratcores at a fabrication bench.</description>
+      <descriptionHyperlinks>
+        <ThingDef>ComponentRatcore</ThingDef>
+      </descriptionHyperlinks>
+      <statBases>
+        <MarketValue>150</MarketValue>
+        <MoveSpeed>4.3</MoveSpeed>
+        <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+        <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+        <BandwidthCost>1</BandwidthCost>
+        <MechEnergyLossPerHP MayRequire="Ludeon.RimWorld.Biotech">0.1</MechEnergyLossPerHP>
+        <WastepacksPerRecharge MayRequire="Ludeon.RimWorld.Biotech">1</WastepacksPerRecharge>
+        <WorkSpeedGlobal MayRequire="Ludeon.RimWorld.Biotech">0.20</WorkSpeedGlobal>
+      </statBases>
+      <race>
+        <mechEnabledWorkTypes>
+          <li>Cooking</li>
+        </mechEnabledWorkTypes>
+        <lifeStageAges>
+          <li>
+            <def>MechanoidFullyFormed</def>
+            <minAge>0</minAge>
+            <soundWounded>Pawn_Mech_WarUrchin_Wounded</soundWounded>
+            <soundDeath>Pawn_Mech_WarUrchin_Death</soundDeath>
+            <soundCall>Pawn_Mech_WarUrchin_Call</soundCall>
+          </li>
+        </lifeStageAges>
+        <baseBodySize>0.20</baseBodySize>
+        <baseHealthScale>2</baseHealthScale>
+      </race>
+      <comps Inherit="False">
+        <li Class="CompProperties_CanBeDormant" />
+        <li Class="CompProperties_WakeUpDormant">
+          <wakeUpOnDamage>true</wakeUpOnDamage>
+          <wakeUpCheckRadius>30</wakeUpCheckRadius>
+          <wakeUpSound>MechanoidsWakeUp</wakeUpSound>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Biotech" Class="CompProperties_OverseerSubject">
+          <needsOverseerEffect>MechUncontrolled</needsOverseerEffect>
+          <delayUntilFeralCheck>600000</delayUntilFeralCheck>
+          <feralMtbDays>60</feralMtbDays>
+          <feralCascadeRadialDistance>5</feralCascadeRadialDistance>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Biotech" Class="CompProperties_MechRepairable" />
+      </comps>
+      <butcherProducts>
+        <Gold>5</Gold>
+      </butcherProducts>
+    </ThingDef>
+
+    <PawnKindDef ParentName="NonCombatLightMechanoidKind" MayRequire="Ludeon.RimWorld.Biotech">
+      <defName>Mech_Autorat</defName>
+      <label>autorat</label>
+      <labelPlural>autorats</labelPlural>
+      <race>Mech_Autorat</race>
+      <allowInMechClusters>false</allowInMechClusters>
+      <forceNoDeathNotification>true</forceNoDeathNotification>
+      <lifeStages>
+        <li>
+          <bodyGraphicData>
+            <texPath>Things/Pawn/Mechanoid/Autorat</texPath>
+            <maskPath>Things/Pawn/Mechanoid/Autorat/AllegianceOverlays/Autorat</maskPath>
+            <shaderType>CutoutWithOverlay</shaderType>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>1.1</drawSize>
+            <shadowData>
+              <volume>(0.2, 0.3, 0.2)</volume>
+            </shadowData>
+          </bodyGraphicData>
+        </li>
+      </lifeStages>
+    </PawnKindDef>
+
+</Defs>

@@ -83,7 +83,7 @@
 		<soundSustainersOnEvent>
 			<li>
 				<start>IgnitionOn</start><stop>IgnitionOff</stop>
-				<value>MJ_EngineNoiseLoopMedium</value>
+				<value>MJ_EngineNoiseLoopSoft</value>
 			</li>
 		</soundSustainersOnEvent>
 
@@ -278,7 +278,7 @@
 				<fuelCapacity>20</fuelCapacity>
 			</li>
 			<li Class="Vehicles.CompProperties_UpgradeTree">
-				<UpgradeTreeDef>MJ_GenericTurret_UpgradeTree</UpgradeTreeDef>
+				<def>MJ_GenericTurret_UpgradeTree</def>
 			</li>
 		</comps>
 	</Vehicles.VehicleDef>

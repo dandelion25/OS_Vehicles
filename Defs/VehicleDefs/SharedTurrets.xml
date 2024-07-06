@@ -135,7 +135,7 @@
 		</ammunition>
 	</Vehicles.VehicleTurretDef>
 
-<!--                                                      --?
+<!--                                                      -->
 <!-- Vehicle versions of vanilla turrets, direct transfer -->
 <!--                                                      -->
 
@@ -360,7 +360,7 @@
 			<li>
 				<shotsPerBurst>12</shotsPerBurst>
 				<ticksBetweenShots>10</ticksBetweenShots>
-				<ticksBetweenBursts>5</ticksBetweenBursts>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
 				<spreadRadius>6.75</spreadRadius>
 				<label>Volley</label>
 				<texPath>UI/Gizmos/FireRate_Auto</texPath>

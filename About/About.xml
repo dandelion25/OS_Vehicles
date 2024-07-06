@@ -6,31 +6,7 @@
 		<li>1.5</li>
 	</supportedVersions>
 	<packageId>Mjeiouws.Outlander.Vehicles</packageId>
-	<description>To the average spacer, the outlanders of the Rim may appear backwards and isolated; this is hardly the case. Survival on the frontier is no simple feat, and while they may have largely forgotten their origins, they are no less sophisticated for it - outlander technology must contend with a diverse array of threats, ranging from ravaging swarms of insects and tribals to impermeable mechanoid bastions. From the merely exotic to the truly bizzare, the unique cultural and material circumstances of the Rim have driven the creation of vehicular systems unseen elsewhere in the galaxy.
-
-Ground Vehicles:
--> Rook: a robust utility carrier for the Rim.
--> Rat: a mobile mini-turret with a hostage mechanoid brain.
--> Horseman: a long-ranged omnidirectional combat vehicle fitted with a battery of needleguns.
--> Helot: a defensive omnidirectional combat vehicle fitted with a fast-charging low-shield.
--> Bulwark: a sluggish, virtually indestructible close-range anti-infantry specialist.
--> Basilisk: a sluggish, virtually indestructible mid-range artillery carrier.
--> Brownie: a sluggish, virtually indestructible battle taxi and cargo vehicle.
-
-Water Vehicles:
--> Siren: an autonomous waterstrider fitted with a light autocannon.
--> Selkie: an autonomous waterstrider with a sail and some cargo space.
--> [TBD] Loader: a fast-moving combat barge fitted with light, fast-firing artillery.
--> [TBD] Lighthouse: a fortress catamaran fitted with a high-shield and heavy artillery.
-
-Planned: Gridway Vehicles
--> [TBD] Minotaur: a large construction vehicle capable of rapidly depositing walls of rough dustcrete.
-
-Planned: Air Vehicles:
--> [TBD] Dogsled: a robust VTOL cargo shuttle for the discerning pilot.
--> [TBD] Diplomat: a double-hulled VTOL cargo shuttle with onboard weaponry to secure contested landing zones.
--> [TBD] Monarch: a VTOL suborbital cruiser with automatic piloting and heavy cannon batteries.
--> [TBD] Mistking: an amphibious VTOL suborbital cruiser with automatic piloting and high-energy weaponry.</description>
+	<description>To the average spacer, the outlanders of the Rim may appear backwards and isolated; this is hardly the case. Survival on the frontier is no simple feat, and while they may have largely forgotten their origins, they are no less sophisticated for it - outlander technology must contend with a diverse array of threats, ranging from ravaging swarms of insects and tribals to impermeable mechanoid bastions. From the merely exotic to the truly bizzare, the unique cultural and material circumstances of the Rim have driven the creation of vehicular systems unseen elsewhere in the galaxy.</description>
 	<modDependencies>
 		<li>
 			<packageId>SmashPhil.VehicleFramework</packageId>

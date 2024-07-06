@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef ParentName="LightMechanoidRecipe" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>Autorat</defName>
+    <label>gestate an autorat</label>
+    <description>Gestate an autorat mechanoid.</description>
+    <researchPrerequisite>VehicularAutonomy</researchPrerequisite>
+    <formingTicks>30000</formingTicks><!-- 12 hours -->
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <products>
+      <Mech_Autorat>1</Mech_Autorat>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>Mech_Autorat</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+</Defs>

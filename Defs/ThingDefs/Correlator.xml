@@ -5,7 +5,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>MJ_CorrelatorNode</defName>
     <label>Correlator Node</label>
-    <description>Integrated ratcores correlate and classify ambient noise, allowing rapid generation and evolution of large-scale simulations and security codes over multiple shifting frequencies. Correlator nodes are capable of suppressing harmful signals, boosting electronic function and opening the way to low-risk airborne travel.\n\nEach research bench can benefit from up to 8 correlator nodes.</description>
+    <description>Integrated ratcores correlate and classify ambient noise, allowing rapid generation and evolution of large-scale simulations and security codes over multiple shifting frequencies. Correlator nodes are capable of suppressing harmful signals, boosting electronic function and enabling low-risk airborne travel.\n\nEach research bench can benefit from up to 8 correlator nodes.</description>
     <graphicData>
       <texPath>Things/Building/CorrelatorNode</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -58,11 +58,11 @@
       <li Class="CompProperties_GiveHediffSeverity">
         <hediff>MJ_CorrelatorHediff</hediff>
         <range>8.9</range>
-        <severityPerSecond>0.002</severityPerSecond>
+        <severityPerSecond>0.005</severityPerSecond>
         <allowMechs>false</allowMechs>
       </li>
       <li Class="CompProperties_CauseHediff_AoE" MayRequire="Ludeon.RimWorld.Biotech">
-        <range>8.9</range>
+        <range>25.9</range>
         <onlyTargetMechs>true</onlyTargetMechs>
         <hediff>MJ_MechSecurityHediff</hediff>
         <activeSound>MechBooster_Working</activeSound>
@@ -90,7 +90,7 @@
     <stages>
       <li>
         <statOffsets MayRequire="Ludeon.RimWorld.Biotech">
-          <BandwidthCost>-1</BandwidthCost>
+          <!-- <BandwidthCost>-1</BandwidthCost> would this work??? Don't touch it for now. -->
         </statOffsets>
         <capMods><li>
             <capacity>Consciousness</capacity>

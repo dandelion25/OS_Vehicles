@@ -1,37 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <Defs>
 
-  <!--=============== Base Components ====================-->
-
-  <ThingDef ParentName="ResourceBase">
-    <defName>ComponentRatcore</defName>
-    <label>ratcore</label>
-    <description>A partial mechanoid brain fitted with a microelectronic interface and inwards-facing autopistol with which it trains its behavior. Though crude, it is an effective approach to machine persuasion popular amongst waster programmers.</description>
-    <graphicData>
-      <texPath>Things/Item/ComponentRatcore/ComponentRatcore</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <soundInteract>Metal_Drop</soundInteract>
-    <soundDrop>Standard_Drop</soundDrop>
-    <stackLimit>1</stackLimit>
-    <healthAffectsPrice>false</healthAffectsPrice>
-    <statBases>
-      <MaxHitPoints>70</MaxHitPoints>
-      <MarketValue>120</MarketValue>
-      <Mass>1.2</Mass>
-      <Flammability>0.6</Flammability>
-      <DeteriorationRate>2.0</DeteriorationRate>
-    </statBases>
-    <intricate>true</intricate>
-    <thingCategories>
-      <li>Manufactured</li>
-    </thingCategories>
-    <tradeTags>
-      <li>ExoticMisc</li>
-    </tradeTags>
-  </ThingDef>
-
-<RecipeDef>
+  <RecipeDef>
     <defName>Make_ComponentRatcore</defName>
     <label>construct ratcore assembly</label>
     <description>Construct a ratcore assembly from dead mechanoids.</description>
@@ -102,7 +73,7 @@
     <workSkill>Crafting</workSkill>
   </RecipeDef>
 
-<RecipeDef MayRequire="Ludeon.Rimworld.Biotech">
+  <RecipeDef MayRequire="Ludeon.Rimworld.Biotech">
     <defName>Make_ComponentRatcore_From_Autorat</defName>
     <label>rewire autorat</label>
     <description>Rewire an autorat into a ratcore assembly.</description>

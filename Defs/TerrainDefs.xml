@@ -50,8 +50,8 @@
     </filthAcceptanceMask>
     <modExtensions>
       <li Class="OutlanderVehicles.TerrainExtension_CustomBridgeProps">
-        <loopPath>Terrain/Misc/StructureCellProps_Loop</loopPath>
-        <rightPath>Terrain/Misc/StructureCellProps_Right</rightPath>
+        <loopPath>Terrain/Surfaces/StructureCellProps_Loop</loopPath>
+        <rightPath>Terrain/Surfaces/StructureCellProps_Right</rightPath>
       </li>
       <li Class="Vehicles.CustomCostDefModExtension">
         <cost>1</cost>
@@ -74,15 +74,13 @@
     <extraNonDraftedPerceivedPathCost>30</extraNonDraftedPerceivedPathCost>  <!-- ref: water is 180. -->
     <extraDraftedPerceivedPathCost>3</extraDraftedPerceivedPathCost>        <!-- ref: water is 18. -->
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <edgeType>Hard</edgeType>
-    <renderPrecedence>75</renderPrecedence>
     <pathCost>1</pathCost>
     <statBases>
       <Beauty>-1</Beauty>
       <WorkToBuild>200</WorkToBuild>
       <CleaningTimeFactor>0.8</CleaningTimeFactor>
     </statBases>
-    <costList>=
+    <costList>
       <Chemfuel>2</Chemfuel>
       <Steel>1</Steel>
     </costList>
