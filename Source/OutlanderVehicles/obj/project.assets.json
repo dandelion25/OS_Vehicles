@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\MjeiouwsMechanized\\Source\\OutlanderVehicles\\OutlanderVehicles.csproj",
+      "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\OS_Vehicles\\Source\\OutlanderVehicles\\OutlanderVehicles.csproj",
       "projectName": "OutlanderVehicles",
-      "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\MjeiouwsMechanized\\Source\\OutlanderVehicles\\OutlanderVehicles.csproj",
+      "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\OS_Vehicles\\Source\\OutlanderVehicles\\OutlanderVehicles.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\MjeiouwsMechanized\\Source\\OutlanderVehicles\\obj\\",
+      "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\OS_Vehicles\\Source\\OutlanderVehicles\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

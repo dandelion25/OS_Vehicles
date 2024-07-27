@@ -100,9 +100,13 @@
 		
 		<properties>
 			<diagonalRotation>false</diagonalRotation>
+			<defaultBiomesImpassable>true</defaultBiomesImpassable>
 			<defaultTerrainImpassable>true</defaultTerrainImpassable>
-			<customTerrainCosts>
-				<li><key>MJ_StructureCell</key><value>1</value></li>
+			<customTerrainCosts AllowTerrainWithTag="Floor" PathCost="80">
+				<li>
+					<key>MJ_StructureCell</key>
+					<value>1</value>
+				</li>
 			</customTerrainCosts>
 			<winterSpeedMultiplier>0</winterSpeedMultiplier>
 			<worldSpeedMultiplier>1</worldSpeedMultiplier>
@@ -295,7 +299,7 @@
 				<description>Install a mini-turret assembly.</description>
 				<icon>Things/Vehicles/Shared/SharedMicroturret</icon>
 				<work>1500</work>
-				<gridCoordinate>(3,1)</gridCoordinate>
+				<gridCoordinate>(3,0)</gridCoordinate>
 				<upgrades>
 					<li Class="Vehicles.TurretUpgrade">
 						<turrets>
@@ -334,7 +338,7 @@
 				<description>Install an autocannon assembly.</description>
 				<icon>Things/Building/Security/TurretAutocannon_MenuIcon</icon>
 				<work>12000</work>
-				<gridCoordinate>(3,2)</gridCoordinate>
+				<gridCoordinate>(3,5)</gridCoordinate>
 				<upgrades>
 					<li Class="Vehicles.TurretUpgrade">
 						<turrets>
@@ -374,7 +378,7 @@
 				<description>Install a sniper turret assembly.</description>
 				<icon>Things/Building/Security/TurretSniper_MenuIcon</icon>
 				<work>12000</work>
-				<gridCoordinate>(3,3)</gridCoordinate>
+				<gridCoordinate>(3,10)</gridCoordinate>
 				<upgrades>
 					<li Class="Vehicles.TurretUpgrade">
 						<turrets>
@@ -414,7 +418,7 @@
 				<description>Install a foam sprayer.</description>
 				<icon>Things/Building/Security/TurretFoam_MenuIcon</icon>
 				<work>1500</work>
-				<gridCoordinate>(3,4)</gridCoordinate>
+				<gridCoordinate>(3,15)</gridCoordinate>
 				<upgrades>
 					<li Class="Vehicles.TurretUpgrade">
 						<turrets>
@@ -453,7 +457,7 @@
 				<description>Install a rocketswarm launcher.</description>
 				<icon>Things/Building/Security/TurretRocket_MenuIcon</icon>
 				<work>8000</work>
-				<gridCoordinate>(3,5)</gridCoordinate>
+				<gridCoordinate>(3,20)</gridCoordinate>
 				<upgrades>
 					<li Class="Vehicles.TurretUpgrade">
 						<turrets>
