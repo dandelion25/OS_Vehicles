@@ -3,77 +3,80 @@
 <Defs>	
 	
 	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
-    <defName>CyraBlueprint</defName>
-    <label>Cyre</label>
+    <defName>CirceBlueprint</defName>
+    <label>Circe</label>
     <!-- <designatorDropdown>MJ_Outlander_VehicleSeriesH</designatorDropdown> -->
-    <description>A multipurpose scout capable of traversing long distances. Propelled by high-efficiency chargejet systems, it is capable of carrying individuals to and from orbit. Its rugged, sleek profile often featured in posters promoting colonisation initiatives.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Pilot x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+    <description>A multipurpose corvette capable of operating in high-threat environments. Propelled by high-efficiency chargejet systems, it is capable of carrying individuals to and from orbit. First codified in a locality of widespread translunar conflict, its layered countermeasures provide substantial resistance to heavy munitions.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Pilot x1, Fire Controller x1, Passenger x4\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
     <graphicData>
-      <texPath>Things/Vehicles/Cyra/Cyra</texPath>
+      <texPath>Things/Vehicles/Circe/Circe</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3.5,3.5)</drawSize>
+      <drawSize>(6,6)</drawSize>
     </graphicData>
 	
-    <size>(3,3)</size>
+    <size>(5,5)</size>
 	
     <statBases>
       <MaxHitPoints>1000</MaxHitPoints>
-      <WorkToBuild>50000</WorkToBuild>
+      <WorkToBuild>150000</WorkToBuild>
       <Flammability>0.05</Flammability>
     </statBases>
 	
     <researchPrerequisites>
       <li>FlightControl</li>
+      <li>Shields</li>
     </researchPrerequisites>
 	
     <constructionSkillPrerequisite>11</constructionSkillPrerequisite>
     <costList>
-      <Steel>60</Steel>
-      <Plasteel>110</Plasteel>
-      <ComponentIndustrial>8</ComponentIndustrial>
-      <ComponentSpacer>2</ComponentSpacer>
+      <Steel>150</Steel>
+      <Silver>2000</Silver>
+      <Plasteel>180</Plasteel>
+      <ComponentIndustrial>12</ComponentIndustrial>
+      <ComponentSpacer>6</ComponentSpacer>
+      <BroadshieldCore MayRequire="Ludeon.RimWorld.Royalty">1</BroadshieldCore>
     </costList>
     <designationCategory>VF_Vehicles</designationCategory>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-    <thingToSpawn>Cyra</thingToSpawn>
+    <thingToSpawn>Circe</thingToSpawn>
   </Vehicles.VehicleBuildDef>
 	
 	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
-		<defName>Cyra</defName>
-		<label>Cyre</label>
-		<description>A multipurpose scout capable of traversing long distances. Propelled by high-efficiency chargejet systems, it is capable of carrying individuals to and from orbit. Its rugged, sleek profile often featured in posters promoting colonisation initiatives.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Pilot x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+		<defName>Circe</defName>
+		<label>Circe</label>
+		<description>A multipurpose corvette capable of operating in high-threat environments. Propelled by high-efficiency chargejet systems, it is capable of carrying individuals to and from orbit. Layered countermeasures provide substantial resistance to destructive barrages, taking lessons from the slag of poorly-scouted landings across the Rim.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Pilot x1, Fire Controller x1, Passenger x4\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
 		
 		<graphicData>
-			<texPath>Things/Vehicles/Cyra/Cyra</texPath>
+			<texPath>Things/Vehicles/Circe/Circe</texPath>
 			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
 			<shaderType>CutoutComplexPattern</shaderType>
-			<drawSize>(3.5,3.5)</drawSize>
+			<drawSize>(6,6)</drawSize>
 		</graphicData>
 		
 		<fillPercent>0.6</fillPercent>
 		
-		<buildDef>CyraBlueprint</buildDef>
+		<buildDef>CirceBlueprint</buildDef>
 		
-		<size>(3, 3)</size>
+		<size>(5, 5)</size>
 		
 		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
-		<vehicleCategory>Transport</vehicleCategory>
+		<vehicleCategory>Combat</vehicleCategory>
 		<techLevel>Spacer</techLevel>
 		<vehicleType>Air</vehicleType>
 		
 		<statBases>
 			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
-			<ArmorRating_Sharp>0.70</ArmorRating_Sharp>
+			<ArmorRating_Sharp>0.80</ArmorRating_Sharp>
 			<ArmorRating_Heat>1.0</ArmorRating_Heat>
 			<Flammability>0.1</Flammability>
-			<MarketValue>1950</MarketValue>
+			<MarketValue>2700</MarketValue>
 		</statBases>
 		
 		<vehicleStats>
-			<Mass>450</Mass>
+			<Mass>820</Mass>
 			<MoveSpeed>4.0</MoveSpeed>
-			<CargoCapacity>80</CargoCapacity>
+			<CargoCapacity>230</CargoCapacity>
 			<RepairRate>0.8</RepairRate>
-			<FlightSpeed>20</FlightSpeed>
+			<FlightSpeed>16</FlightSpeed>
 		</vehicleStats>
 		
 		<soundSustainersOnEvent>
@@ -141,9 +144,36 @@
 
 					<hitbox>
 						<cells>
-							<li>(0, 1)</li>
+							<li>(0, 2)</li>
 						</cells>
 					</hitbox>
+				</li>
+				<li>
+					<key>gunner</key>
+					<label>Fire Controller</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					
+					<handlingTypes>
+						<li>Turret</li>
+					</handlingTypes>
+
+					<turretIds>
+						<li>mainTurret</li>
+						<li>miniTurretL</li>
+						<li>miniTurretR</li>
+					</turretIds>
+
+					<hitbox>
+						<cells>
+							<li>(0, 0)</li>
+						</cells>
+					</hitbox>
+				</li>
+				<li>
+					<key>passenger</key>
+					<label>Passenger</label>
+					<slots>4</slots>
 				</li>
 			</roles>
 			<customSnowCategoryTicks AssignDefaults = "0"/>
@@ -177,66 +207,10 @@
 					<li Class = "Vehicles.Reactor_Explosive">
 						<indicator>VF_Explosive</indicator>
 						<chance>0.25</chance>
-						<radius>3</radius>
-						<damageDef>Bomb</damageDef>
+						<radius>8</radius>
+						<damageDef>EMP</damageDef>
 					</li>
 				</reactors>
-				
-				<hitbox>
-					<cells>
-						<li>(0, 0)</li>
-					</cells>
-				</hitbox>
-				
-				<categories>
-					<li>MoveSpeed</li>
-				</categories>
-			</li>
-			<li>
-				<key>RightWing</key>
-				<label>Right Wing</label>
-				<health>300</health>
-				<depth>External</depth>
-				<tags><li>Wheel</li></tags>
-				<armor>
-					<ArmorRating_Blunt>1.10</ArmorRating_Blunt>
-					<ArmorRating_Sharp>0.78</ArmorRating_Sharp>
-				</armor>
-				<hitbox>
-					<cells><li>(1, 0)</li>
-                                               <li>(1, -1)</li>
-                                               <li>(1, 1)</li></cells>
-				</hitbox>
-				
-				<categories>
-					<li>FlightControl</li>
-				</categories>
-			</li>
-			<li>
-				<key>LeftWing</key>
-				<label>Left Wing</label>
-				<health>300</health>
-				<depth>External</depth>
-				<tags><li>Wheel</li></tags>
-				<armor>
-					<ArmorRating_Blunt>1.10</ArmorRating_Blunt>
-					<ArmorRating_Sharp>0.78</ArmorRating_Sharp>
-				</armor>
-				<hitbox>
-					<cells><li>(-1, 0)</li>
-                                               <li>(-1, -1)</li>
-                                               <li>(-1, 1)</li></cells>
-				</hitbox>
-				
-				<categories>
-					<li>FlightControl</li>
-				</categories>
-			</li>
-			<li>
-				<key>Thruster</key>
-				<label>Chargejet Core</label>
-				<health>80</health>
-				<depth>External</depth>
 				
 				<hitbox>
 					<cells>
@@ -250,9 +224,75 @@
 				</categories>
 			</li>
 			<li>
+				<key>RightWing</key>
+				<label>Right Wing</label>
+				<health>500</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>1.10</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.96</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<cells><li>(2, 2)</li>
+                                               <li>(2, 1)</li>
+                                               <li>(2, 0)</li>
+                                               <li>(2, -1)</li>
+                                               <li>(2, -2)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftWing</key>
+				<label>Left Wing</label>
+				<health>500</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>1.10</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.78</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<cells><li>(-2, 2)</li>
+                                               <li>(-2, 1)</li>
+                                               <li>(-2, 0)</li>
+                                               <li>(-2, -1)</li>
+                                               <li>(-2, -2)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+			<li>
+				<key>Thruster</key>
+				<label>Chargejet Array</label>
+				<health>420</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.96</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<cells>
+						<li>(0, -2)</li>
+						<li>(2, -2)</li>
+						<li>(-2, -2)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+			<li>
 				<key>Chemtank</key>
 				<label>Chemtank</label>
-				<health>120</health>
+				<health>220</health>
 				<depth>Internal</depth>
 				
 				<reactors>
@@ -261,7 +301,7 @@
 				
 				<hitbox>
 					<cells>
-						<li>(0, 0)</li>
+						<li>(0, 1)</li>
 					</cells>
 				</hitbox>
 			</li>
@@ -294,7 +334,7 @@
 				
 				<armor>
 					<ArmorRating_Blunt>0.80</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.05</ArmorRating_Sharp>
+					<ArmorRating_Sharp>1.22</ArmorRating_Sharp>
 				</armor>
 			</li>
 		</components>
@@ -303,13 +343,13 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>20</fuelConsumptionRate>
-				<fuelCapacity>120</fuelCapacity>
+				<fuelConsumptionRate>40</fuelConsumptionRate>
+				<fuelCapacity>280</fuelCapacity>
 			</li>
 			<li Class="Vehicles.CompProperties_VehicleLauncher">
 				<launchProtocol Class="Vehicles.DefaultTakeoff">
 					<launchProperties>
-						<maxTicks>800</maxTicks>
+						<maxTicks>1200</maxTicks>
 						<forcedRotation>East</forcedRotation>
 						
 						<rotationCurve Class="SmashTools.BezierCurve">
@@ -399,7 +439,7 @@
 					</launchProperties>
 					
 					<landingProperties>
-						<maxTicks>800</maxTicks>
+						<maxTicks>1200</maxTicks>
 						<forcedRotation>East</forcedRotation>
 						
 						<rotationCurve Class="SmashTools.BezierCurve">
@@ -493,22 +533,174 @@
 			<li Class="Vehicles.CompProperties_VehicleTurrets">
 				<turrets>
 					<li>
+						<turretDef>Circeturret</turretDef>
+						
+						<renderProperties>
+							<north>(0, -1)</north>
+							<south>(0, 1)</south>
+							<east>(-1, 0.0625)</east>
+						</renderProperties>
+						
+						<gizmoLabel>Glist effecter</gizmoLabel>
+						
+						<aimPieOffset>(0, 1)</aimPieOffset>
+						<key>mainTurret</key>
+					</li>
+					<li>
 						<turretDef>SharedMicroturret</turretDef>
 						
 						<renderProperties>
-							<north>(0, 0.10)</north>
-							<south>(0, 0.40)</south>
-							<east>(-0.10, 0)</east>
+							<north>(-1.125, 0)</north>
+							<south>(1.125, 0)</south>
+							<east>(0, 1)</east>
 						</renderProperties>
 						
 						<gizmoLabel>Mini-turret</gizmoLabel>
 						
 						<aimPieOffset>(0, 0.35)</aimPieOffset>
-						<key>mainTurret</key>
+						<key>miniTurretL</key>
+					</li>
+					<li>
+						<turretDef>SharedMicroturret</turretDef>
+						
+						<renderProperties>
+							<north>(1.125, 0)</north>
+							<south>(-1.125, 0)</south>
+							<east>(0, -1)</east>
+						</renderProperties>
+						
+						<gizmoLabel>Mini-turret</gizmoLabel>
+						
+						<aimPieOffset>(0, 0.35)</aimPieOffset>
+						<key>miniTurretR</key>
 					</li>
 				</turrets>
 			</li>
+			<!-- Inner Shield Component -->
+			<li Class="CompProperties_ProjectileInterceptor">
+				<radius>3.5</radius>
+				<interceptGroundProjectiles>true</interceptGroundProjectiles>
+				<color>(0.4, 0.4, 0.4)</color>
+				<reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+				<activeSound>BulletShield_Ambience</activeSound>
+				<hitPoints>20</hitPoints>
+				<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+				<chargeDurationTicks>420</chargeDurationTicks><!-- 7s -->
+				<drawWithNoSelection>True</drawWithNoSelection>
+				<disarmedByEmpForTicks>240</disarmedByEmpForTicks>
+				<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
+				<idlePulseSpeed>4</idlePulseSpeed>
+				<minIdleAlpha>0.00</minIdleAlpha>
+			</li>
+			<!-- Middle Shield Component -->
+			<li Class="CompProperties_ProjectileInterceptor">
+				<radius>4</radius>
+				<interceptGroundProjectiles>true</interceptGroundProjectiles>
+				<color>(0.5, 0.5, 0.5)</color>
+				<reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+				<activeSound>BulletShield_Ambience</activeSound>
+				<hitPoints>20</hitPoints>
+				<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+				<chargeDurationTicks>240</chargeDurationTicks><!-- 4s -->
+				<drawWithNoSelection>True</drawWithNoSelection>
+				<disarmedByEmpForTicks>240</disarmedByEmpForTicks>
+				<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
+				<idlePulseSpeed>3</idlePulseSpeed>
+				<minIdleAlpha>0.00</minIdleAlpha>
+			</li>
+			<!-- Outer Shield Component -->
+			<li Class="CompProperties_ProjectileInterceptor">
+				<radius>4.5</radius>
+				<interceptGroundProjectiles>true</interceptGroundProjectiles>
+				<interceptAirProjectiles>true</interceptAirProjectiles>
+				<color>(0.6, 0.6, 0.6)</color>
+				<reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+				<activeSound>BulletShield_Ambience</activeSound>
+				<hitPoints>20</hitPoints>
+				<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+				<chargeDurationTicks>60</chargeDurationTicks><!-- 1s -->
+				<drawWithNoSelection>True</drawWithNoSelection>
+				<disarmedByEmpForTicks>240</disarmedByEmpForTicks>
+				<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
+				<idlePulseSpeed>2</idlePulseSpeed>
+				<minIdleAlpha>0.05</minIdleAlpha>
+			</li>
 		</comps>
 	</Vehicles.VehicleDef>
+
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>Circe_Turret</defName>
+		<label>ion effecter</label>
+		<description>A spacer-tech array that uses unstable magnetic resonances in to excite travelling pulses of destructive energy. Parasitic currents erode sacrificial nodes in the array, necessitating their replacement after heavy use.</description>
+		
+		<turretType>Rotatable</turretType>
+		<shotSound>MJFlashNoiseLight</shotSound>
+		<reloadSound>Interact_ChargeRifle</reloadSound>
+		
+		<projectile>Bullet_MJCirce</projectile>
+		<reloadTimer>2.5</reloadTimer>
+		<warmUpTimer>0.3</warmUpTimer>
+		<magazineCapacity>120</magazineCapacity>
+		<chargePerAmmoCount>0.1</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>6.5</rotationSpeed>
+		
+		<projectileOffset>0.8</projectileOffset>
+		<projectileShifting>
+			<li>0.24</li>
+			<li>0.08</li>
+			<li>-0.08</li>
+			<li>-0.24</li>
+		</projectileShifting>
+
+		<hitFlags>IntendedTarget</hitFlags>
+		<maxRange>44.9</maxRange>
+		<minRange>3.9</minRange>
+		
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
+		
+		<fireModes>
+			<li>
+				<shotsPerBurst>4</shotsPerBurst>
+				<ticksBetweenShots>1</ticksBetweenShots>
+				<ticksBetweenBursts>20</ticksBetweenBursts>
+				<spreadRadius>0.4</spreadRadius>
+				<label>Single Shot</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>2</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<spreadRadius>1.3</spreadRadius>
+				<label>Burstfire</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Circe/Circe_Turret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(2, 2)</drawSize>
+		</graphicData>
+		
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+
+		<motes>
+			<li>
+				<cycles>1</cycles>
+				<moteDef>Mote_MJEnergyCannonFlash</moteDef>
+				<animationType>Reset</animationType>
+			</li>
+		</motes>
+	</Vehicles.VehicleTurretDef>
 
 </Defs>

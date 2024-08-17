@@ -17,4 +17,24 @@
 			<drawSize>(4,4)</drawSize>
 		</graphicData>
 	</ThingDef>
+
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_MJEnergyCannonFlash</defName>
+		<thingClass>Vehicles.MoteCannonPlume</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.03</fadeInTime>
+			<solidTime>0.01</solidTime>
+			<fadeOutTime>0.03</fadeOutTime>
+			<growthRate>0.2</growthRate>
+		</mote>
+		<graphicData>
+			<graphicClass>Vehicles.Graphic_Animate</graphicClass>
+			<texPath>Things/Mote/MJEnergyCannonFlash</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+	</ThingDef>
+
 </Defs>

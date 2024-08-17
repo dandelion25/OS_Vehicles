@@ -83,4 +83,28 @@
     </projectile>
   </ThingDef>
 
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MJCirce</defName>
+    <label>metastable pulse</label>
+    <graphicData>
+      <texPath>Things/Projectile/MJIonFlash</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <!-- flipExtraRotation>80</flipExtraRotation -->
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+      <armorPenetrationBase>1.75</armorPenetrationBase>
+      <stoppingPower>0</stoppingPower>
+      <extraDamages>
+        <li><def>Stun</def><amount>1</amount></li>
+        <li><def>Bomb</def><amount>4</amount></li>
+      </extraDamages>
+      <speed>300</speed>
+    </projectile>
+  </ThingDef>
+
 </Defs>

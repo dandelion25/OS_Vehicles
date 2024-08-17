@@ -2,7 +2,7 @@
 
 <Defs>	
 	
-	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+  <Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
     <defName>HelotBlueprint</defName>
     <label>Helot</label>
     <designatorDropdown>MJ_Outlander_VehicleSeriesH</designatorDropdown>
