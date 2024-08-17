@@ -56,6 +56,7 @@
       <li Class="Vehicles.CustomCostDefModExtension">
         <cost>1</cost>
         <!-- use this for specific vehicles maybe <vehicles></vehicles> -->
+        <vehicles>Trajan</vehicles>
       </li>
     </modExtensions>
   </TerrainDef>
@@ -72,7 +73,7 @@
     <designationCategory>VF_Vehicles</designationCategory>
     <avoidWander>true</avoidWander>
     <extraNonDraftedPerceivedPathCost>30</extraNonDraftedPerceivedPathCost>  <!-- ref: water is 180. -->
-    <extraDraftedPerceivedPathCost>3</extraDraftedPerceivedPathCost>        <!-- ref: water is 18. -->
+    <!-- extraDraftedPerceivedPathCost>3</extraDraftedPerceivedPathCost -->        <!-- ref: water is 18. -->
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <pathCost>1</pathCost>
     <statBases>

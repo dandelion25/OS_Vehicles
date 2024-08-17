@@ -102,7 +102,7 @@
 			<diagonalRotation>false</diagonalRotation>
 			<defaultBiomesImpassable>true</defaultBiomesImpassable>
 			<defaultTerrainImpassable>true</defaultTerrainImpassable>
-			<customTerrainCosts AllowTerrainWithTag="Floor" PathCost="80">
+			<customTerrainCosts AllowTerrainWithTag="Floor" PathCost="20">
 				<li>
 					<key>MJ_StructureCell</key>
 					<value>1</value>
@@ -191,7 +191,7 @@
 			</li>
 			<li>
 				<key>Reactor</key>
-				<label>Reactor Grating</label>
+				<label>Reactive Grating</label>
 				<health>210</health>
 				<priorityStatEfficiency>true</priorityStatEfficiency>
 				<depth>Internal</depth>
@@ -200,8 +200,8 @@
 					<li Class = "Vehicles.Reactor_Explosive">
 						<indicator>VF_Explosive</indicator>
 						<chance>0.25</chance>
-						<radius>3</radius>
-						<damageDef>Bomb</damageDef>
+						<radius>8</radius>
+						<damageDef>EMP</damageDef>
 					</li>
 				</reactors>
 				<hitbox>
@@ -223,22 +223,6 @@
 					<ArmorRating_Blunt>1.28</ArmorRating_Blunt>
 					<ArmorRating_Sharp>0.87</ArmorRating_Sharp>
 				</armor>
-			</li>
-			<li>
-				<key>Chemtank</key>
-				<label>Chemtank</label>
-				<health>100</health>
-				<depth>Internal</depth>
-				
-				<reactors>
-					<li Class = "Vehicles.Reactor_FuelLeak"/>
-				</reactors>
-				
-				<hitbox>
-					<cells>
-						<li>(0, -1)</li>
-					</cells>
-				</hitbox>
 			</li>
 			<li>
 				<key>DiagnosticTerminal</key>
@@ -275,12 +259,6 @@
 		</components>
 
 		<comps>
-			<li Class="Vehicles.CompProperties_FueledTravel">
-				<fuelType>Chemfuel</fuelType>
-				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>50</fuelConsumptionRate>
-				<fuelCapacity>20</fuelCapacity>
-			</li>
 			<li Class="Vehicles.CompProperties_UpgradeTree">
 				<def>MJ_GenericTurret_UpgradeTree</def>
 			</li>
