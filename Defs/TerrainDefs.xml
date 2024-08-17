@@ -6,9 +6,9 @@
     <label>structure cell</label>
     <description>Engineered scaffolds of composite metacrystalline material. Structure cells are engineered to withstand harsh environments, rejecting surface contaminants through action of radiogenic charge. Collecting rods accumulate and direct this charge, providing power and propulsion to vehicles passing over them. Long-lived and resistant to tampering, structure cells have been reverse-engineered numerous times from ancient examples across the rim.\n\nLike hazard tiles, structure cells deter pedestrian traffic.</description>
     <texturePath>Terrain/Surfaces/StructureCell</texturePath>
-    <!-- is this needed or am imaking a mistake? <uiIconPath>Terrain/Surfaces/StructureCellIcon</uiIconPath> -->
+    <!-- uiIconPath>Terrain/Surfaces/StructureCellIcon</uiIconPath -->
     <layerable>true</layerable>
-    <!-- what does this do even (mysterious) <bridge>true</bridge> -->
+    <!--bridge>true</bridge-->
     <affordances>
       <li>Light</li>
       <li>Medium</li>
@@ -19,9 +19,9 @@
     <avoidWander>true</avoidWander>     <!-- colonists should avoid stepping on structure grids! -->
     <holdSnow>false</holdSnow>          <!-- no sno :) -->
     <extraNonDraftedPerceivedPathCost>30</extraNonDraftedPerceivedPathCost>  <!-- water is 180; colonists prefer grid to water. -->
-    <extraDraftedPerceivedPathCost>10</extraDraftedPerceivedPathCost>         <!-- water is 18; colonists prefer grid to water. -->
+    <!-- extraDraftedPerceivedPathCost>0</extraDraftedPerceivedPathCost -->         <!-- water is 18; colonists prefer grid to water. -->
     <constructEffect>ConstructMetal</constructEffect>
-    <!-- currently removed <terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded> -->
+    <!-- terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded -->
     <edgeType>Hard</edgeType>
     <renderPrecedence>400</renderPrecedence>
     <pathCost>3</pathCost>

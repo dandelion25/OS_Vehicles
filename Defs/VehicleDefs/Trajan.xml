@@ -100,17 +100,14 @@
 		
 		<properties>
 			<diagonalRotation>false</diagonalRotation>
-			<defaultBiomesImpassable>true</defaultBiomesImpassable>
+			<!-- defaultBiomesImpassable>true</defaultBiomesImpassable -->
 			<defaultTerrainImpassable>true</defaultTerrainImpassable>
-			<customTerrainCosts AllowTerrainWithTag="Floor" PathCost="20">
-				<li>
-					<key>MJ_StructureCell</key>
-					<value>1</value>
-				</li>
+			<customTerrainCosts>
+				<li><key>MJ_StructureCell</key><value>1</value></li>
 			</customTerrainCosts>
 			<winterSpeedMultiplier>0</winterSpeedMultiplier>
 			<worldSpeedMultiplier>1</worldSpeedMultiplier>
-			<offRoadMultiplier>1</offRoadMultiplier>
+			<offRoadMultiplier>0.1</offRoadMultiplier>
 			<vehicleJobLimitations>
 				<li>(RepairVehicle, 2)</li>
 			</vehicleJobLimitations>

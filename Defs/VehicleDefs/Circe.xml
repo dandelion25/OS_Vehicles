@@ -533,7 +533,7 @@
 			<li Class="Vehicles.CompProperties_VehicleTurrets">
 				<turrets>
 					<li>
-						<turretDef>Circeturret</turretDef>
+						<turretDef>Circe_Turret</turretDef>
 						
 						<renderProperties>
 							<north>(0, -1)</north>
@@ -541,7 +541,7 @@
 							<east>(-1, 0.0625)</east>
 						</renderProperties>
 						
-						<gizmoLabel>Glist effecter</gizmoLabel>
+						<gizmoLabel>Ion effecter</gizmoLabel>
 						
 						<aimPieOffset>(0, 1)</aimPieOffset>
 						<key>mainTurret</key>
