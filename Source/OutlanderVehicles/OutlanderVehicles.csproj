@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputPath>..\..\Assemblies</OutputPath>
     <RootNamespace>OutlanderVehicles</RootNamespace>
@@ -9,6 +9,11 @@
     <DebugType>None</DebugType>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="VehicleHolder.JobDriver_LoadVehicleHolder.cs" />
+    <Compile Remove="VehicleHolder.VehiclePawn.cs" />
+    <Compile Remove="VehicleHolder.Window_LoadVehicles.cs" />
+  </ItemGroup>
 <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
@@ -31,8 +36,22 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
+		<HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+		<Private>False</Private>
     </Reference>
+	<Reference Include="UnityEngine.IMGUIModule">
+		<HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+		<Private>False</Private>
+	</Reference>
+	<Reference Include="UnityEngine.TextRenderingModule">
+		<HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+		<Private>False</Private>
+	</Reference>
+	<Reference Include="SmashTools">
+		<HintPath>..\..\..\..\..\..\workshop\content\294100\3014915404\1.5\Assemblies\SmashTools.dll</HintPath>
+	</Reference>
+	<Reference Include="Vehicles">
+		<HintPath>..\..\..\..\..\..\workshop\content\294100\3014915404\1.5\Assemblies\Vehicles.dll</HintPath>
+	</Reference>
   </ItemGroup>
 </Project>

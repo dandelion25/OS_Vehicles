@@ -8,7 +8,7 @@
     <designatorDropdown>MJ_Outlander_VehicleSeriesB</designatorDropdown>
     <description>A tall, bulky construction weighed down with heavy armor. Partly inspired by mechanoid centipedes, the Brownie uses powered rollers in place of tracks - these travel extremely slowly off of paved surfaces, but take up very little space and are difficult to disable.\n\nThe Brownie lacks heavy armament, freeing up additional space for passengers and cargo in the crew compartment. \n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1, Passenger x3\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
     <graphicData>
-      <texPath>Things/Vehicles/Brownie/Brownie</texPath>
+      <texPath>Things/Vehicles/Bulwark/Bulwark</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(4,4)</drawSize>
     </graphicData>
@@ -42,7 +42,7 @@
 		<description>A tall, bulky construction weighed down with heavy armor. Partly inspired by mechanoid centipedes, the Brownie uses powered rollers in place of tracks - these travel extremely slowly off of paved surfaces, but take up very little space and are difficult to disable.\n\nThe Brownie lacks heavy armament, freeing up additional space for passengers and cargo in the crew compartment.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1, Passenger x3\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
 		
 		<graphicData>
-			<texPath>Things/Vehicles/Brownie/Brownie</texPath>
+			<texPath>Things/Vehicles/Bulwark/Bulwark</texPath>
 			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
 			<shaderType>CutoutComplexPattern</shaderType>
 			<drawSize>(4,4)</drawSize>
@@ -118,7 +118,12 @@
 					
 					<handlingTypes>
 						<li>Movement</li>
+						<li>Turret</li>
 					</handlingTypes>
+
+					<turretIds>
+						<li>pintleLMG</li>
+					</turretIds>
 				</li>
 				<li>
 					<key>gunner</key>
@@ -130,6 +135,8 @@
 					
 					<turretIds>
 						<li>mgCupola</li>
+						<li>ionEffecter</li>
+						<li>peregrineArray</li>
 					</turretIds>
 				</li>
 				<li>
@@ -353,7 +360,7 @@
 							<south>(0, 0.10)</south>
 							<east>(-0.05, 0.525)</east>
 						</renderProperties>
-						
+						<drawLayer>2</drawLayer> <!-- drawLayer is 1 by default -->
 						<gizmoLabel>Machine Gun</gizmoLabel>
 						
 						<angleRestricted/>
@@ -362,6 +369,10 @@
 						<key>mgCupola</key>
 					</li>
 				</turrets>
+			</li>
+
+			<li Class="Vehicles.CompProperties_UpgradeTree">
+				<def>OSVehicles_Bulwark_UpgradeTree</def>
 			</li>
 		</comps>
 	</Vehicles.VehicleDef>

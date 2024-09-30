@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<Vehicles.UpgradeTreeDef>
+		<defName>OSVehicles_Cyra_UpgradeTree</defName>
+		<nodes>
+			<li>
+				<key>BombTurret</key>
+				<label>Bomb refit</label>
+				<description>Refit the vehicle with an explosive rocket mortar.</description>
+				<icon>Things/Vehicles/Shared/MicroBombturret_icon</icon>
+				<work>3500</work>
+				<gridCoordinate>(3,5)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>SharedMicromortar</turretDef>
+								<renderProperties>
+									<north>(0, 0.10)</north>
+									<south>(0, 0.40)</south>
+									<east>(-0.10, 0)</east>
+								</renderProperties>
+								<gizmoLabel>Rocket mortar</gizmoLabel>
+								<aimPieOffset>(0, 0.35)</aimPieOffset>
+								<key>onagerTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>RocketswarmLauncher</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>60</Steel>
+					<ComponentIndustrial>4</ComponentIndustrial>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>CannonTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+			<li>
+				<key>CannonTurret</key>
+				<label>Cannon refit</label>
+				<description>Refit the vehicle with an explosive cannon turret.</description>
+				<icon>Things/Vehicles/Shared/MicroCannonturret_icon</icon>
+				<work>3500</work>
+				<gridCoordinate>(8,5)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>SharedMicrocannon</turretDef>
+								<renderProperties>
+									<north>(0, 0.10)</north>
+									<south>(0, 0.40)</south>
+									<east>(-0.10, 0)</east>
+								</renderProperties>
+								<gizmoLabel>Mini-cannon</gizmoLabel>
+								<aimPieOffset>(0, 0.35)</aimPieOffset>
+								<key>onagerTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>AccumulativeShaping</li>
+					<li>HeavyTurrets</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>60</Steel>
+					<Plasteel>20</Plasteel>
+					<ComponentIndustrial>4</ComponentIndustrial>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>BombTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+		</nodes>
+	</Vehicles.UpgradeTreeDef>
+
+</Defs>

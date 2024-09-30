@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<Vehicles.UpgradeTreeDef>
+		<defName>OSVehicles_Bulwark_UpgradeTree</defName>
+		<nodes>
+			<!-- Expeditionary Configuration -->
+
+			<li>
+				<key>MobilityUpgrade</key>
+				<label>Mobility Refit</label>
+				<description>Refit the vehicle for greater mobility. The new track is much more effective, but susceptible to damage.</description>
+				<icon>UI/Icons/HostilityResponse/Flee</icon>
+				<work>5000</work>
+				<gridCoordinate>(3,0)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.StatUpgrade">
+						<vehicleStats>
+							<li><def>MoveSpeed</def><value>2.5</value><type>Add</type></li>
+						</vehicleStats>
+						<statCategories>
+							<li><def>OffRoadMultiplier</def><value>1</value><type>Set</type></li>
+							<li><def>WinterCostMultiplier</def><value>0</value><type>Set</type></li>
+							<li><def>WorldSpeedMultiplier</def><value>0.5</value><type>Add</type></li>
+						</statCategories>
+					</li>
+					<li Class="Vehicles.VehicleUpgrade">
+						<health>
+							<li><key>LeftTrack</key><value>120</value><type>Set</type></li>
+							<li><key>RightTrack</key><value>120</value><type>Set</type></li>
+						</health>
+						<armor>
+							<li>
+								<key>LeftTrack</key>
+								<statModifiers>
+									<ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+								</statModifiers>
+								<type>Set</type>
+							</li>
+							<li>
+								<key>RightTrack</key>
+								<statModifiers>
+									<ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+								</statModifiers>
+								<type>Set</type>
+							</li>
+						</armor>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>Fabrication</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Plasteel>60</Plasteel>
+					<Uranium>20</Uranium>
+					<ComponentIndustrial>4</ComponentIndustrial>
+				</ingredients>
+				<graphicOverlays>
+					<li>
+						<graphicData>
+							<texPath>Things/Vehicles/Bulwark/MobilityUpgrade</texPath>
+							<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+							<drawSize>(4,4)</drawSize>
+							<layer>1</layer>
+							<shaderType>Cutout</shaderType>
+						</graphicData>
+					</li>
+				</graphicOverlays>
+			</li>
+
+			<!-- Auto-Gunner -->
+
+			<li>
+				<key>MicroTurret</key>
+				<label>Mini-turret</label>
+				<description>Affix the commander's cupola with an automated mini-turret.</description>
+				<icon>Things/Vehicles/Shared/SharedMicroturret_icon</icon>
+				<work>1500</work>
+				<gridCoordinate>(8,0)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>SharedMicroturret</turretDef>
+								<renderProperties>
+									<north>(0, 0.55)</north>
+									<south>(0, -0.9)</south>
+									<east>(-0.05, 0.525)</east>
+								</renderProperties>
+								<drawLayer>3</drawLayer> <!-- drawLayer is 1 by default -->
+								<gizmoLabel>Mini-turret gun</gizmoLabel>
+								<aimPieOffset>(0, 0.35)</aimPieOffset>
+								<key>microTurret</key>
+							</li>
+						</turrets>
+						<!-- removeTurrets><li>mgCupola</li></removeTurrets -->
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>GunTurrets</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>20</Steel>
+					<ComponentIndustrial>3</ComponentIndustrial>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>SpacerArmament</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+
+			<!-- Driver Sidearm -->
+
+			<li>
+				<key>PintleMG</key>
+				<label>Spare LMG</label>
+				<description>Pass the driver an LMG.</description>
+				<icon>Things/Item/Equipment/WeaponRanged/LMG</icon>
+				<work>500</work>
+				<gridCoordinate>(8,5)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>SharedPintleLMG</turretDef>
+								<renderProperties>
+									<north>(0.15, 1.45)</north>
+									<south>(-0.2, -0.9)</south>
+									<east>(1.3, 0.5)</east>
+								</renderProperties>
+								<drawLayer>-1</drawLayer>
+								<gizmoLabel>Driver's LMG</gizmoLabel>
+								<aimPieOffset>(0, 0.35)</aimPieOffset>
+								<angleRestricted>(290,70)</angleRestricted>
+								<key>pintleLMG</key>
+							</li>
+						</turrets>
+					</li>
+				</upgrades>
+				<ingredients>
+					<Gun_LMG>1</Gun_LMG>
+				</ingredients>
+			</li>
+
+			<li>
+				<key>SpacerArmament</key>
+				<label>Peregrine Configuration</label>
+				<description>Install a suite of powerful energy weapons in the commander's position.</description>
+				<icon>Things/Vehicles/Bulwark/Peregrine_Turret_icon</icon>
+				<work>21000</work>
+				<gridCoordinate>(8,10)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>OSVehicles_PeregrineArray</turretDef>
+								<renderProperties>
+									<north>(0, 0.55)</north>
+									<south>(0, -0.9)</south>
+									<east>(-0.05, 0.525)</east>
+								</renderProperties>
+								<drawLayer>1</drawLayer> <!-- note: drawLayer is 1 by default -->
+								<gizmoLabel>Peregrine Array</gizmoLabel>
+								<aimPieOffset>(0, 1.25)</aimPieOffset>
+								<key>peregrineArray</key>
+							</li>
+							<li>
+								<turretDef>Circe_Turret</turretDef>
+								<renderProperties>
+									<north>(0, 0.55)</north>
+									<south>(0, -0.9)</south>
+									<east>(-0.05, 0.525)</east>
+								</renderProperties>
+								<drawLayer>2</drawLayer>
+								<gizmoLabel>Ion Effecter</gizmoLabel>
+								<aimPieOffset>(0, 1.5)</aimPieOffset>
+								<key>ionEffecter</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mgCupola</li>
+							<!-- li>microTurret</li -->
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>ChargedShot</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>140</Steel>
+					<ComponentIndustrial>7</ComponentIndustrial>
+					<ComponentSpacer>2</ComponentSpacer>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>MicroTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+		</nodes>
+	</Vehicles.UpgradeTreeDef>
+
+
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>OSVehicles_PeregrineArray</defName>
+		<label>Peregrine Array</label>
+		<description>A powerful electrical array capable of generating pulsed blasts of disruptive energy.</description>
+		
+		<turretType>Rotatable</turretType>
+		<shotSound>MJFlashNoiseLight</shotSound>
+		<reloadSound>Interact_ChargeRifle</reloadSound>
+		
+		<projectile>Bullet_MJPeregrine</projectile>
+		<reloadTimer>5</reloadTimer>
+		<warmUpTimer>0</warmUpTimer>
+		<magazineCapacity>20</magazineCapacity>
+		<chargePerAmmoCount>5</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.5</rotationSpeed>
+		
+		<projectileOffset>0</projectileOffset>
+		<projectileShifting>
+			<li>1.25</li>
+			<li>-1.25</li>
+		</projectileShifting>
+		<hitFlags>IntendedTarget</hitFlags>
+		<maxRange>30.9</maxRange>
+		<minRange>4.9</minRange>
+		
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
+
+		<fireModes>
+			<li>
+				<shotsPerBurst>2</shotsPerBurst>
+				<ticksBetweenBursts>120</ticksBetweenBursts>
+				<spreadRadius>1.8</spreadRadius>
+				<label>Automatic</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Bulwark/Peregrine_Turret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(4, 4)</drawSize>
+		</graphicData>
+		
+		<ammunition>
+			<thingDefs>
+				<li>Silver</li>
+			</thingDefs>
+		</ammunition>
+
+		<motes>
+			<li>
+				<cycles>1</cycles>
+				<moteDef>Mote_ShieldBlast</moteDef>
+				<animationType>Reset</animationType>
+			</li>
+		</motes>
+	</Vehicles.VehicleTurretDef>
+
+
+
+</Defs>

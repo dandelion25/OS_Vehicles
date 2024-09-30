@@ -23,7 +23,7 @@
 	
     <researchPrerequisites>
       <li>FlightControl</li>
-      <li>Shields</li>
+      <li>ShieldBelt</li>
     </researchPrerequisites>
 	
     <constructionSkillPrerequisite>11</constructionSkillPrerequisite>
@@ -160,8 +160,10 @@
 
 					<turretIds>
 						<li>mainTurret</li>
-						<li>miniTurretL</li>
-						<li>miniTurretR</li>
+						<li>onagerTurret</li>
+						<li>negatorTurret</li>
+						<!-- li>miniTurretL</li this will be automated for now! -->
+						<!-- li>miniTurretR</li -->
 					</turretIds>
 
 					<hitbox>
@@ -566,7 +568,7 @@
 						<renderProperties>
 							<north>(1.125, 0)</north>
 							<south>(-1.125, 0)</south>
-							<east>(0, -1)</east>
+							<east>(0, -0.875)</east>
 						</renderProperties>
 						
 						<gizmoLabel>Mini-turret</gizmoLabel>
@@ -576,6 +578,11 @@
 					</li>
 				</turrets>
 			</li>
+
+			<li Class="Vehicles.CompProperties_UpgradeTree">
+				<def>OSVehicles_Circe_UpgradeTree</def>
+			</li>
+
 			<!-- Inner Shield Component -->
 			<li Class="CompProperties_ProjectileInterceptor">
 				<radius>3.5</radius>
@@ -642,7 +649,7 @@
 		<reloadTimer>2.5</reloadTimer>
 		<warmUpTimer>0.3</warmUpTimer>
 		<magazineCapacity>120</magazineCapacity>
-		<chargePerAmmoCount>0.1</chargePerAmmoCount>
+		<chargePerAmmoCount>0.05</chargePerAmmoCount>
 		<genericAmmo>true</genericAmmo>
 		
 		<autoSnapTargeting>false</autoSnapTargeting>
@@ -693,6 +700,11 @@
 				<li>Steel</li>
 			</thingDefs>
 		</ammunition>
+
+		<cooldown>
+			<heatPerShot>1</heatPerShot>
+			<dissipationRate>0.08333</dissipationRate> <!-- 5 per second -->
+		</cooldown>
 
 		<motes>
 			<li>

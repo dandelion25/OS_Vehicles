@@ -125,6 +125,9 @@
 					
 					<turretIds>
 						<li>mainTurret</li>
+						<li>onagerTurret</li>
+						<li>negatorTurret</li>
+						<li>ionTurret</li>
 					</turretIds>
 				</li>
 			</roles>
@@ -342,6 +345,10 @@
 					</li>
 				</turrets>
 			</li>
+
+			<li Class="Vehicles.CompProperties_UpgradeTree">
+				<def>OSVehicles_Horseman_UpgradeTree</def>
+			</li>
 		</comps>
 	</Vehicles.VehicleDef>
 	
@@ -358,7 +365,7 @@
 		<reloadTimer>2.5</reloadTimer>
 		<warmUpTimer>1.3</warmUpTimer>
 		<magazineCapacity>60</magazineCapacity>
-		<chargePerAmmoCount>1</chargePerAmmoCount>
+		<chargePerAmmoCount>0.5</chargePerAmmoCount>
 		<genericAmmo>true</genericAmmo>
 		
 		<autoSnapTargeting>false</autoSnapTargeting>
@@ -382,6 +389,11 @@
 			<distancePerTick>0.01</distancePerTick>
 			<speedMultiplierPostRecoil>0.08</speedMultiplierPostRecoil>
 		</vehicleRecoil>
+
+		<cooldown>
+			<heatPerShot>1</heatPerShot>
+			<dissipationRate>0.08333</dissipationRate> <!-- 5 per second -->
+		</cooldown>
 		
 		<fireModes>
 			<li>

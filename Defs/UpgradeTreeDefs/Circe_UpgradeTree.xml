@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- The Circe can be refitted with the same turrets as in the Horseman upgrade tree. -->
+
+	<Vehicles.UpgradeTreeDef>
+		<defName>OSVehicles_Circe_UpgradeTree</defName>
+		<nodes>
+			<li>
+				<key>OnagerTurret</key>
+				<label>Onager</label>
+				<description>Refit the vehicle with an explosive rocket mortar.</description>
+				<icon>Things/Vehicles/Horseman/Onager_Turret_icon</icon>
+				<work>5000</work>
+				<gridCoordinate>(8,0)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>OSVehicles_OnagerTurret</turretDef>
+								<renderProperties>
+									<north>(0, -1)</north>
+									<south>(0, 1)</south>
+									<east>(-1, 0.0625)</east>
+								</renderProperties>
+								<gizmoLabel>Rocket mortar</gizmoLabel>
+								<aimPieOffset>(0, 0.85)</aimPieOffset>
+								<key>onagerTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>RocketswarmLauncher</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>60</Steel>
+					<ComponentIndustrial>4</ComponentIndustrial>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>NegatorTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+			<li>
+				<key>NegatorTurret</key>
+				<label>Negator</label>
+				<description>Refit the vehicle with a heavy charge railgun.</description>
+				<icon>Things/Vehicles/Horseman/Negator_Turret_icon</icon>
+				<work>5000</work>
+				<gridCoordinate>(3,10)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>OSVehicles_NegatorTurret</turretDef>
+								<renderProperties>
+									<north>(0, -1)</north>
+									<south>(0, 1)</south>
+									<east>(-1, 0.0625)</east>
+								</renderProperties>
+								<gizmoLabel>Charge railgun</gizmoLabel>
+								<aimPieOffset>(0, 1.25)</aimPieOffset>
+								<key>negatorTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>ChargedShot</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>120</Steel>
+					<ComponentSpacer>2</ComponentSpacer>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>OnagerTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+		</nodes>
+	</Vehicles.UpgradeTreeDef>
+
+</Defs>

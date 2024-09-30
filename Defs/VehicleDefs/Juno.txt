@@ -1,0 +1,21 @@
+A heavy carrier capable of carrying vehicles in its internal cargo bay.
+
+| characteristics:
+>> size: 7x7
+>> movement: partial gridway (slow off gridways); incapable of caravaning
+>> launch: straight up with gentle forward rotation. Takes off and lands like vertical rocket.
+>> cargo capacity: 5000 kg
+>> vehicle payload: can carry 25 units of vehicle payload (defined in class)
+>> vehicle loading distance: 8 cells
+
+note: *extremely* fuel hungry - an average trip should take more than 200 x chemfuel.
+
+| weapons:
+4 mini-cannon turrets are on periphery.
+
+| visual:
+a large, boxy 5x5 hangar ringed by linear thrusters. 
+
+
+
+1. The Juno is a vertical launch system, 

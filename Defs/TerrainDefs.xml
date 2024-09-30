@@ -24,7 +24,7 @@
     <!-- terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded -->
     <edgeType>Hard</edgeType>
     <renderPrecedence>400</renderPrecedence>
-    <pathCost>3</pathCost>
+    <pathCost>1</pathCost>
     <autoRebuildable>true</autoRebuildable>
     <statBases>
       <WorkToBuild>2500</WorkToBuild>
@@ -54,9 +54,8 @@
         <rightPath>Terrain/Surfaces/StructureCellProps_Right</rightPath>
       </li>
       <li Class="Vehicles.CustomCostDefModExtension">
+        <!-- vehicles>Trajan</vehicles -->
         <cost>1</cost>
-        <!-- use this for specific vehicles maybe <vehicles></vehicles> -->
-        <vehicles>Trajan</vehicles>
       </li>
     </modExtensions>
   </TerrainDef>

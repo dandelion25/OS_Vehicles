@@ -8,7 +8,7 @@
     <designatorDropdown>MJ_Outlander_VehicleSeriesB</designatorDropdown>
     <description>A tall, bulky construction weighed down with heavy armor and armament. Partly inspired by mechanoid centipedes, the Basilisk uses powered rollers in place of tracks - these travel extremely slowly off of paved surfaces, but take up very little space and are difficult to disable.\n\nSharing a chassis with the Bulwark, Basilisks eschew anti-personnel functionality in favor of a slow-firing slug projector.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
     <graphicData>
-      <texPath>Things/Vehicles/Basilisk/Basilisk</texPath>
+      <texPath>Things/Vehicles/Bulwark/Bulwark</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(4,4)</drawSize>
     </graphicData>
@@ -44,7 +44,7 @@
 		<description>A tall, bulky construction weighed down with heavy armor and armament. Partly inspired by mechanoid centipedes, the Basilisk uses powered rollers in place of tracks - these travel extremely slowly off of paved surfaces, but take up very little space and are difficult to disable.\n\nSharing a chassis with the Bulwark, Basilisks eschew anti-personnel functionality in favor of a slow-firing slug projector.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
 		
 		<graphicData>
-			<texPath>Things/Vehicles/Basilisk/Basilisk</texPath>
+			<texPath>Things/Vehicles/Bulwark/Bulwark</texPath>
 			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
 			<shaderType>CutoutComplexPattern</shaderType>
 			<drawSize>(4,4)</drawSize>
@@ -120,7 +120,12 @@
 					
 					<handlingTypes>
 						<li>Movement</li>
+						<li>Turret</li>
 					</handlingTypes>
+
+					<turretIds>
+						<li>pintleLMG</li>
+					</turretIds>
 				</li>
 				<li>
 					<key>gunner</key>
@@ -132,6 +137,7 @@
 					
 					<turretIds>
 						<li>mainTurret</li>
+						<li>peregrineArray</li>
 					</turretIds>
 				</li>
 			</roles>
@@ -350,12 +356,16 @@
 							<south>(0, 0.10)</south>
 							<east>(-0.05, 0.525)</east>
 						</renderProperties>
-						
+						<drawLayer>2</drawLayer> <!-- note: drawLayer is 1 by default -->
 						<gizmoLabel>Basilisk Cannon</gizmoLabel>
 						<aimPieOffset>(0, 1.2)</aimPieOffset>
 						<key>mainTurret</key>
 					</li>
 				</turrets>
+			</li>
+
+			<li Class="Vehicles.CompProperties_UpgradeTree">
+				<def>OSVehicles_Basilisk_UpgradeTree</def>
 			</li>
 		</comps>
 	</Vehicles.VehicleDef>
@@ -366,7 +376,8 @@
 		<description>A single-shot electromagnetic projector capable of accurately firing massive, armor crushing slugs.</description>
 		
 		<turretType>Rotatable</turretType>
-		<shotSound>Explosion_EMP</shotSound>
+		<!-- shotSound>Explosion_EMP</shotSound -->
+		<shotSound>BasiliskCannonSound</shotSound>
 		<reloadSound>VehicleCabinetFiddleNoise</reloadSound>
 		
 		<projectile>Bullet_MJBasilisk</projectile>
@@ -409,7 +420,7 @@
 		</fireModes>
 		
 		<graphicData>
-			<texPath>Things/Vehicles/Basilisk/Basilisk_Turret</texPath>
+			<texPath>Things/Vehicles/Bulwark/Basilisk_Turret</texPath>
 			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
 			<shaderType>CutoutComplexPattern</shaderType>
 			<drawSize>(4, 4)</drawSize>

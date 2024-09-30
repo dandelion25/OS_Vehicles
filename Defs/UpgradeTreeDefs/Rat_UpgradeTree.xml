@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<Vehicles.UpgradeTreeDef>
+		<defName>OSVehicles_Rat_UpgradeTree</defName>
+		<nodes>
+			<!-- Expeditionary Configuration -->
+
+			<li>
+				<key>ArmorUprade</key>
+				<label>Armor Upgrade Package</label>
+				<description>Implement a comprehensive armor package using advanced materials.</description>
+				<icon>UI/Icons/ChallengeRatingIcon</icon>
+				<work>3000</work>
+				<gridCoordinate>(3,0)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.StatUpgrade">
+						<vehicleStats>
+							<li><def>MoveSpeed</def><value>-0.5</value><type>Add</type></li>
+						</vehicleStats>
+					</li>
+					<li Class="Vehicles.VehicleUpgrade">
+						<armor>
+							<li>
+								<key>FrontArmorPlating</key>
+								<statModifiers>
+									<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+								</statModifiers>
+								<type>Add</type>
+							</li>
+							<li>
+								<key>LeftArmorPlating</key>
+								<statModifiers>
+									<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+								</statModifiers>
+								<type>Add</type>
+							</li>
+							<li>
+								<key>RightArmorPlating</key>
+								<statModifiers>
+									<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+								</statModifiers>
+								<type>Add</type>
+							</li>
+						</armor>
+						<health>
+							<li><key>FrontArmorPlating</key><value>80</value><type>Add</type></li>
+							<li><key>LeftArmorPlating</key><value>40</value><type>Add</type></li>
+							<li><key>RightArmorPlating</key><value>40</value><type>Add</type></li>
+						</health>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>AccumulativeShaping</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>75</Steel>
+					<Uranium>20</Uranium>
+					<Chemfuel>100</Chemfuel>
+				</ingredients>
+				<graphicOverlays>
+					<li>
+						<graphicData>
+							<texPath>Things/Vehicles/Rat/ArmorUpgrade</texPath>
+							<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+							<drawSize>(4,4)</drawSize>
+							<layer>1</layer>
+							<shaderType>Cutout</shaderType>
+						</graphicData>
+					</li>
+				</graphicOverlays>
+			</li>
+			<li>
+				<key>BombTurret</key>
+				<label>Bomb refit</label>
+				<description>Refit the vehicle with an explosive rocket mortar.</description>
+				<icon>Things/Vehicles/Shared/MicroBombturret_icon</icon>
+				<work>3500</work>
+				<gridCoordinate>(3,5)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>SharedMicromortar</turretDef>
+								<renderProperties>
+									<north>(0, 0.4)</north>
+									<south>(0, -0.05)</south>
+									<east>(0.35, 0.4)</east>
+								</renderProperties>
+								<gizmoLabel>Rocket mortar</gizmoLabel>
+								<aimPieOffset>(0, 0.35)</aimPieOffset>
+								<key>rocketTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>RocketswarmLauncher</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>60</Steel>
+					<ComponentIndustrial>4</ComponentIndustrial>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>CannonTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+			<li>
+				<key>CannonTurret</key>
+				<label>Cannon refit</label>
+				<description>Refit the vehicle with an explosive cannon turret.</description>
+				<icon>Things/Vehicles/Shared/MicroCannonturret_icon</icon>
+				<work>3500</work>
+				<gridCoordinate>(8,5)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>SharedMicrocannon</turretDef>
+								<renderProperties>
+									<north>(0, 0.4)</north>
+									<south>(0, -0.05)</south>
+									<east>(0.35, 0.4)</east>
+								</renderProperties>
+								<gizmoLabel>Mini-cannon</gizmoLabel>
+								<aimPieOffset>(0, 1)</aimPieOffset>
+								<key>cannonTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>AccumulativeShaping</li>
+					<li>HeavyTurrets</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>60</Steel>
+					<Plasteel>20</Plasteel>
+					<ComponentIndustrial>4</ComponentIndustrial>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>BombTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+		</nodes>
+	</Vehicles.UpgradeTreeDef>
+
+</Defs>

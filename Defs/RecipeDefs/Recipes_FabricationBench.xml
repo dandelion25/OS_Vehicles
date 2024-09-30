@@ -10,7 +10,7 @@
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
-    <workAmount>10000</workAmount>
+    <workAmount>9000</workAmount>
     <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
     <recipeUsers><li>FabricationBench</li></recipeUsers>
     <ingredients>
@@ -75,30 +75,25 @@
 
   <RecipeDef MayRequire="Ludeon.Rimworld.Biotech">
     <defName>Make_ComponentRatcore_From_Autorat</defName>
-    <label>rewire autorat</label>
-    <description>Rewire an autorat into a ratcore assembly.</description>
+    <label>process autorat detritus</label>
+    <description>Process autorat detritus into a functional ratcore assembly.</description>
     <jobString>Making ratcore assembly.</jobString>
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
-    <workAmount>10000</workAmount>
+    <workAmount>12000</workAmount>
     <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
     <recipeUsers><li>FabricationBench</li></recipeUsers>
     <ingredients>
       <li>
         <filter>
-          <categories>
-            <li>Corpses</li>
-          </categories>
+          <thingDefs>
+            <li>Detritus_Autorat</li>
+          </thingDefs>
         </filter>
         <count>1</count>
       </li>
     </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Corpse_Mech_Autorat</li>
-      </thingDefs>
-    </fixedIngredientFilter>
     <products>
       <ComponentRatcore>1</ComponentRatcore>
     </products>

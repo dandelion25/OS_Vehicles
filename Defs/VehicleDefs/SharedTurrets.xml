@@ -72,7 +72,7 @@
 
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
 		<defName>SharedMicroturret</defName>
-		<label>Microturret</label>
+		<label>Mini-turret</label>
 		<description>A mini-turret gun in an enclosed housing. Integrated cooling and recoil compensation allow it to fire faster than portable variants.</description>
 
 		<turretType>Rotatable</turretType>
@@ -101,7 +101,7 @@
 			<speedMultiplierPostRecoil>0.2</speedMultiplierPostRecoil>
 		</recoil>
 
-		<attachProjectileFlag>MJ_LowBullet</attachProjectileFlag>
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
 
 		<fireModes>
 			<li>
@@ -135,251 +135,176 @@
 		</ammunition>
 	</Vehicles.VehicleTurretDef>
 
-<!--                                                      -->
-<!-- Vehicle versions of vanilla turrets, direct transfer -->
-<!--                                                      -->
-
-
-<!-- Autocannon Turret Port -->
-
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
-		<defName>MJ_SharedAutocannonTurret</defName>
-		<label>autocannon turret</label>
-		<description>A heavy automatic turret. Its large-caliber shells do heavy damage over significant ranges, but its barrel must be refurbished after use. It cannot fire at close-up targets.</description>
-		
+		<defName>SharedMicrocannon</defName>
+		<label>Mini-cannon</label>
+		<description>A mini-shredder cannon in an enclosed housing, firing polymer-cased chemcharges.</description>
+
 		<turretType>Rotatable</turretType>
 		<shotSound>Shot_Autocannon</shotSound>
-		<reloadSound>VehicleCabinetFiddleNoise</reloadSound>
+		<reloadSound>Interact_SMG</reloadSound>
 		
-		<projectile>Bullet_AutocannonTurret</projectile>
-		<reloadTimer>4.5</reloadTimer>
-		<warmUpTimer>0.1</warmUpTimer>
-		<magazineCapacity>15</magazineCapacity>
-		<chargePerAmmoCount>2</chargePerAmmoCount>
+		<projectile>Bullet_MJShredder</projectile>
+		<reloadTimer>2.6</reloadTimer>
+		<warmUpTimer>2</warmUpTimer>
+		<magazineCapacity>3</magazineCapacity>
+		<chargePerAmmoCount>5</chargePerAmmoCount>
 		<genericAmmo>true</genericAmmo>
-		<ammunition><thingDefs>
-			<li>Steel</li>
-		</thingDefs></ammunition>
+
+		<hitFlags>IntendedTarget</hitFlags>
 		
 		<autoSnapTargeting>false</autoSnapTargeting>
 		<rotationSpeed>2.0</rotationSpeed>
 		
-		<restrictionType>Vehicles.TurretRestrictions_Stationary</restrictionType>
 		<projectileOffset>0.5</projectileOffset>
-		<hitFlags>IntendedTarget</hitFlags>
-		<maxRange>32.9</maxRange>
-		<minRange>8.9</minRange>
-		
-		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
+		<maxRange>20.9</maxRange>
+		<minRange>3.4</minRange>
 		
 		<recoil>
 			<distanceTotal>0.1</distanceTotal>
 			<distancePerTick>0.05</distancePerTick>
-			<speedMultiplierPostRecoil>0.85</speedMultiplierPostRecoil>
+			<speedMultiplierPostRecoil>0.2</speedMultiplierPostRecoil>
 		</recoil>
-		
-		<fireModes>
-			<li>
-				<shotsPerBurst>1</shotsPerBurst>
-				<ticksBetweenBursts>90</ticksBetweenBursts>
-				<spreadRadius>0.3</spreadRadius>
-				<label>Single Shot</label>
-				<texPath>UI/Gizmos/FireRate_Single</texPath>
-			</li>
-			<li>
-				<shotsPerBurst>3</shotsPerBurst>
-				<ticksBetweenShots>17</ticksBetweenShots>
-				<ticksBetweenBursts>210</ticksBetweenBursts>
-				<spreadRadius>0.8</spreadRadius>
-				<label>Burst</label>
-				<texPath>UI/Gizmos/FireRate_Burst</texPath>
-			</li>
-		</fireModes>
-		
-		<graphicData>
-			<texPath>Things/Building/Security/TurretAutocannon_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>2.7</drawSize>
-		</graphicData>
-		
-		<motes>
-			<li>
-				<cycles>1</cycles>
-				<moteDef>Mote_CannonFlash</moteDef>
-				<animationType>Reset</animationType>
-			</li>
-		</motes>
-	</Vehicles.VehicleTurretDef>
 
-<!-- Uranium Slug Turret Port -->
-
-
-	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
-		<defName>MJ_SharedUraniumSlugTurret</defName>
-		<label>uranium slug turret</label>
-		<description>An armor-piercing turret. Its ultra-dense uranium shells can punch through heavy armor, but it requires new uranium slugs to be loaded after use. It's more capable at longer ranges, and can't fire at all close up.</description>
-		
-		<turretType>Rotatable</turretType>
-		<shotSound>Shot_Autocannon</shotSound>
-		<reloadSound>VehicleCabinetFiddleNoise</reloadSound>
-		
-		<projectile>Bullet_TurretSniper</projectile>
-		<reloadTimer>4.5</reloadTimer>
-		<warmUpTimer>0.1</warmUpTimer>
-		<magazineCapacity>15</magazineCapacity>
-		<chargePerAmmoCount>2</chargePerAmmoCount>
-		<genericAmmo>true</genericAmmo>
-		<ammunition><thingDefs>
-			<li>Uranium</li>
-		</thingDefs></ammunition>
-		
-		<autoSnapTargeting>false</autoSnapTargeting>
-		<rotationSpeed>1.2</rotationSpeed>
-		
-		<restrictionType>Vehicles.TurretRestrictions_Stationary</restrictionType>
-		<projectileOffset>0.5</projectileOffset>
-		<hitFlags>IntendedTarget</hitFlags>
-		<maxRange>45.9</maxRange>
-		<minRange>11.9</minRange>
-		
 		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
-		
-		<recoil>
-			<distanceTotal>0.2</distanceTotal>
-			<distancePerTick>0.2</distancePerTick>
-			<speedMultiplierPostRecoil>0.35</speedMultiplierPostRecoil>
-		</recoil>
-		
+
 		<fireModes>
 			<li>
 				<shotsPerBurst>1</shotsPerBurst>
-				<ticksBetweenBursts>190</ticksBetweenBursts>
-				<label>Single Shot</label>
+				<ticksBetweenBursts>60</ticksBetweenBursts>
+				<spreadRadius>1</spreadRadius>
+				<label>Single</label>
 				<texPath>UI/Gizmos/FireRate_Single</texPath>
 			</li>
 		</fireModes>
 		
 		<graphicData>
-			<texPath>Things/Building/Security/TurretSniper_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>2.7</drawSize>
+			<texPath>Things/Vehicles/Shared/MicroCannonturret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(3.5, 3.5)</drawSize>
 		</graphicData>
 		
-		<motes>
-			<li>
-				<cycles>1</cycles>
-				<moteDef>Mote_CannonFlash</moteDef>
-				<animationType>Reset</animationType>
-			</li>
-		</motes>
+		<ammunition>
+			<thingDefs>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</ammunition>
 	</Vehicles.VehicleTurretDef>
 
-<!-- Foam Turret Port -->
-
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
-		<defName>MJ_SharedFoamTurret</defName>
-		<label>foam turret</label>
-		<description>A turret for extinguishing fires. Once installed, it can be directed to spray large amounts of firefoam on the desired target.</description>
-		
-		<turretType>Rotatable</turretType>
-		<shotSound>Foam_Impact</shotSound>
-		<reloadSound>Interact_Rifle</reloadSound>
-		
-		<projectile>Proj_Foam</projectile>
-		<reloadTimer>4.5</reloadTimer>
-		<warmUpTimer>0.1</warmUpTimer>
-		<magazineCapacity>40</magazineCapacity>
-		<chargePerAmmoCount>2</chargePerAmmoCount>
-		<genericAmmo>true</genericAmmo>
-		<ammunition><thingDefs>
-			<li>Chemfuel</li>
-		</thingDefs></ammunition>
-		
-		<autoSnapTargeting>false</autoSnapTargeting>
-		<rotationSpeed>5.0</rotationSpeed>
-		
-		<restrictionType>Vehicles.TurretRestrictions_Stationary</restrictionType>
-		<projectileOffset>0.5</projectileOffset>
-		<hitFlags>IntendedTarget</hitFlags>
-		<maxRange>0.9</maxRange>
-		<minRange>19.9</minRange>
-		
-		<attachProjectileFlag>MJ_HighBullet</attachProjectileFlag>
-		
-		<fireModes>
-			<li>
-				<shotsPerBurst>20</shotsPerBurst>
-				<ticksBetweenShots>2</ticksBetweenShots>
-				<ticksBetweenBursts>60</ticksBetweenBursts>
-				<spreadRadius>5.5</spreadRadius>
-				<label>Spray</label>
-				<texPath>UI/Gizmos/FireRate_Auto</texPath>
-			</li>
-		</fireModes>
-		
-		<graphicData>
-			<texPath>Things/Item/Equipment/WeaponRanged/TurretFoam_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>1.8</drawSize>
-		</graphicData>
-	</Vehicles.VehicleTurretDef>
+		<defName>SharedMicromortar</defName>
+		<label>Mini-mortar</label>
+		<description>A single-shot rocket mortar in an enclosed housing.</description>
 
-<!-- Rocketswarm Turret Port -->
-
-	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
-		<defName>MJ_SharedRocketswarmTurret</defName>
-		<label>rocketswarm launcher</label>
-		<description>An emergency-defense launcher that fires a single barrage of rockets covering a large area. It is very effective against large groups of weaker combatants, but less effective against small numbers of armored targets. Once fired, it must cool off for hours and be reloaded to fire again.</description>
-		
 		<turretType>Rotatable</turretType>
 		<shotSound>RocketswarmLauncher_Fire</shotSound>
 		<reloadSound>VehicleCabinetFiddleNoise</reloadSound>
 		
-		<projectile>Proj_Rocket</projectile>
-		<reloadTimer>120</reloadTimer>
-		<warmUpTimer>0.1</warmUpTimer>
-		<magazineCapacity>12</magazineCapacity>
+		<projectile>Proj_MJOnager</projectile>
+		<reloadTimer>2.6</reloadTimer>
+		<warmUpTimer>1.2</warmUpTimer>
+		<magazineCapacity>1</magazineCapacity>
 		<chargePerAmmoCount>15</chargePerAmmoCount>
 		<genericAmmo>true</genericAmmo>
-		<ammunition><thingDefs>
-			<li>Chemfuel</li>
-		</thingDefs></ammunition>
+
+		<hitFlags>IntendedTarget</hitFlags>
 		
 		<autoSnapTargeting>false</autoSnapTargeting>
-		<rotationSpeed>2.0</rotationSpeed>
+		<rotationSpeed>3.0</rotationSpeed>
 		
-		<restrictionType>Vehicles.TurretRestrictions_Stationary</restrictionType>
+		<projectileOffset>0</projectileOffset>
+		<maxRange>34.9</maxRange>
+		<minRange>6.9</minRange>
+
+		<cooldown>
+			<heatPerShot>10</heatPerShot>
+			<dissipationRate>0.01667</dissipationRate> <!-- 1 per second -->
+		</cooldown>
+
+		<attachProjectileFlag>MJ_LowBullet</attachProjectileFlag>
+
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>20</ticksBetweenBursts>
+				<spreadRadius>2</spreadRadius>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Shared/MicroBombturret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(3.5, 3.5)</drawSize>
+		</graphicData>
+		
+		<ammunition>
+			<thingDefs>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>SharedPintleLMG</defName>
+		<label>Pintle LMG</label>
+		<description>A pintle-mounted light machine gun.</description>
+		
+		<shotSound>Shot_Minigun</shotSound>
+		<reloadSound>Interact_SMG</reloadSound>
+		
+		<projectile>Bullet_LMG</projectile>
+		<reloadTimer>5.6</reloadTimer>
+		<warmUpTimer>1.3</warmUpTimer>
+		<magazineCapacity>25</magazineCapacity>
+		<chargePerAmmoCount>0.2</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		
+		<autoSnapTargeting>true</autoSnapTargeting>
+		
+		<!-- restrictionType>Vehicles.TurretRestrictions_Stationary</restrictionType -->
 		<projectileOffset>0.5</projectileOffset>
 		<hitFlags>IntendedTarget</hitFlags>
-		<maxRange>29.9</maxRange>
-		<minRange>8.9</minRange>
+		<maxRange>25.9</maxRange>
+		<minRange>1</minRange>
 		
-		<attachProjectileFlag>MJ_HighBullet</attachProjectileFlag>
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
 		
 		<fireModes>
 			<li>
-				<shotsPerBurst>12</shotsPerBurst>
-				<ticksBetweenShots>10</ticksBetweenShots>
+				<shotsPerBurst>4</shotsPerBurst>
+				<ticksBetweenShots>12</ticksBetweenShots>
 				<ticksBetweenBursts>60</ticksBetweenBursts>
-				<spreadRadius>6.75</spreadRadius>
-				<label>Volley</label>
+				<label>Burst</label>
+				<spreadRadius>0.7</spreadRadius>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>12</shotsPerBurst>
+				<ticksBetweenShots>16</ticksBetweenShots>
+				<ticksBetweenBursts>200</ticksBetweenBursts>
+				<spreadRadius>2</spreadRadius>
+				<label>Automatic</label>
 				<texPath>UI/Gizmos/FireRate_Auto</texPath>
 			</li>
 		</fireModes>
 		
 		<graphicData>
-			<texPath>Things/Building/Security/TurretRocketFull_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>2.2</drawSize>
+			<texPath>Things/Item/Equipment/WeaponRanged/LMG</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(1, 1)</drawSize>
 		</graphicData>
 		
-		<motes>
-			<li>
-				<cycles>1</cycles>
-				<moteDef>Mote_CannonFlash</moteDef>
-				<animationType>Reset</animationType>
-			</li>
-		</motes>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
 	</Vehicles.VehicleTurretDef>
 
 </Defs>

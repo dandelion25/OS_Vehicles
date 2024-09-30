@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+  <Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+    <defName>OSVehicles_JanusBlueprint</defName>
+    <label>Janus</label>
+    <!-- designatorDropdown>MJ_Outlander_VehicleSeriesH</designatorDropdown -->
+    <description>A tall omnidirectional vehicle capable of autonomous operation. Buoyant wheels and a central chargejet assembly allow it to traverse marginal terrain and fly short distances at reduced efficiency.\n\nA powerful correlator node takes up most of its internal volume, granting the ability to identify and propagate faint signals for various purposes.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Passenger x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+    <graphicData>
+      <texPath>Things/Vehicles/Janus/Janus</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,7)</drawSize>
+    </graphicData>
+	
+    <size>(3,3)</size>
+	
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <WorkToBuild>14500</WorkToBuild>
+      <Flammability>0.05</Flammability>
+    </statBases>
+	
+    <researchPrerequisites>
+      <li>MachineEcology</li>
+    </researchPrerequisites>
+	
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <costList>
+      <Steel>220</Steel>
+      <Plasteel>80</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+      <ComponentRatcore>4</ComponentRatcore>
+    </costList>
+    <designationCategory>VF_Vehicles</designationCategory>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <thingToSpawn>OSVehicles_Janus</thingToSpawn>
+  </Vehicles.VehicleBuildDef>
+	
+	<Vehicles.VehicleDef ParentName="BaseVehiclePawn">
+		<defName>OSVehicles_Janus</defName>
+		<label>Janus</label>
+		<description>A tall omnidirectional vehicle capable of autonomous operation. Buoyant wheels and a central chargejet assembly allow it to traverse marginal terrain and fly short distances at reduced efficiency.\n\nA powerful correlator node takes up most of its internal volume, granting the ability to identify and propagate faint signals for various purposes.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Passenger x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Janus/Janus</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(4,7)</drawSize>
+		</graphicData>
+		
+		<fillPercent>0.8</fillPercent>
+		
+		<buildDef>OSVehicles_JanusBlueprint</buildDef>
+		
+		<size>(3, 3)</size>
+		
+		<vehicleMovementPermissions>NoDriverNeeded</vehicleMovementPermissions>
+		<vehicleCategory>Combat</vehicleCategory>
+		<techLevel>Spacer</techLevel>
+		<vehicleType>Land</vehicleType>
+		
+		<statBases>
+			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1.4</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.1</Flammability>
+			<MarketValue>2200</MarketValue>
+		</statBases>
+		
+		<vehicleStats>
+			<Mass>250</Mass>
+			<MoveSpeed>8.0</MoveSpeed>
+			<CargoCapacity>150</CargoCapacity>
+			<RepairRate>2.0</RepairRate>
+			<AccelerationRate MayRequire="oskarpotocki.vanillavehiclesexpanded">0.75</AccelerationRate>
+		</vehicleStats>
+		
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start><stop>IgnitionOff</stop>
+				<value>MJ_DynamoNoisesLight</value>
+			</li>
+		</soundSustainersOnEvent>
+
+		<soundOneShotsOnEvent Inherit = "False">
+		<li>
+			<key>PawnEntered</key>
+			<value>Shuttle_PawnLoaded</value>
+		</li>
+		<li>
+			<key>PawnExited</key>
+			<value>Shuttle_PawnExit</value>
+		</li>
+		<li>
+			<key>IgnitionOn</key>
+			<value>MJOscibeep</value>
+		</li>
+		<li>
+			<key>IgnitionOff</key>
+			<value>MJOscibeep2</value>
+		</li>
+		</soundOneShotsOnEvent>
+		
+		<race>
+			<baseBodySize>4.5</baseBodySize>
+		</race>
+		
+		<properties>
+			<diagonalRotation>false</diagonalRotation>
+			<customRoadCosts AssignDefaults = "0.5" />
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 2)</li>
+			</vehicleJobLimitations>
+			
+			<roles>
+				<li>
+					<key>passenger</key>
+					<label>Passenger</label>
+					<slots>1</slots>
+				</li>
+			</roles>
+			<customSnowCategoryTicks AssignDefaults = "0"/>
+			<customTerrainCosts AllowTerrainWithTag="Water" PathCost="1">
+				<li><key>Mud</key><value>1</value></li>
+				<li><key>MarshyTerrain</key><value>1</value></li>
+				<li><key>Sand</key><value>1</value></li>
+				<li><key>SoftSand</key><value>1</value></li>
+			</customTerrainCosts>
+			<customBiomeCosts>
+				<li><key>Lake</key><value>4</value></li>
+				<li><key>Tundra</key><value>1</value></li>
+				<li><key>ColdBog</key><value>2</value></li>
+				<li><key>TemperateSwamp</key><value>2</value></li>
+				<li><key>TropicalSwamp</key><value>2</value></li>
+			</customBiomeCosts>
+			<winterSpeedMultiplier>0</winterSpeedMultiplier>
+			<worldSpeedMultiplier>1</worldSpeedMultiplier>
+			<offRoadMultiplier>1</offRoadMultiplier>
+		</properties>
+		
+		<components>
+			<li>
+				<key>Engine</key>
+				<label>Dynamo</label>
+				<health>120</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>3</radius>
+						<damageDef>Bomb</damageDef>
+					</li>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontLeftLeg</key>
+				<label>Front Right Leg</label>
+				<health>100</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.12</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(-1, 1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontRightLeg</key>
+				<label>Front Left Leg</label>
+				<health>100</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.12</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, 1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RearLeftLeg</key>
+				<label>Rear Left leg</label>
+				<health>100</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.12</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(-1, -1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RearRightLeg</key>
+				<label>Rear Right Leg</label>
+				<health>100</health>
+				<depth>External</depth>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0.80</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.12</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, -1)</li></cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>ChargejetUnit</key>
+				<label>Chargejet Unit</label>
+				<health>120</health>
+				<depth>Internal</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+			<li>
+				<key>Chemtank</key>
+				<label>Chemtank</label>
+				<health>120</health>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li>
+				<key>Display</key>
+				<label>Display</label>
+				<health>50</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>Command Panel</key>
+				<label>Command Panel</label>
+				<health>50</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>Transformer</key>
+				<label>Transformer</label>
+				<health>50</health>
+				<depth>Internal</depth>
+			</li>
+			<li>
+				<key>HullPlating</key>
+				<label>Hull Plating</label>
+				<health>120</health>
+				<depth>External</depth>
+				<hitWeight>20</hitWeight>
+				
+				<armor>
+					<ArmorRating_Blunt>0.89</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.15</ArmorRating_Sharp>
+				</armor>
+			</li>
+		</components>
+
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>12</fuelConsumptionRate>
+				<fuelCapacity>120</fuelCapacity>
+				<fuelConsumptionWorldMultiplier>0.5</fuelConsumptionWorldMultiplier>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleLauncher">
+				<launchProtocol Class="Vehicles.DefaultTakeoff">
+					<launchProperties>
+						<maxTicks>800</maxTicks>
+						<forcedRotation>East</forcedRotation>
+						
+						<rotationCurve Class="SmashTools.BezierCurve">
+							<points>
+								<li>(0, 0)</li>
+								<li>(0.5, 0)</li>
+								<li>(1, -20)</li>
+							</points>
+						</rotationCurve>
+
+						<xPositionCurve Class="SmashTools.BezierCurve">
+							<points>
+								<li>(0, 0)</li>
+								<li>(0.5, 0)</li>
+								<li>(0.6, 10)</li>
+								<li>(0.8, 30)</li>
+								<li>(1, 60)</li>
+							</points>
+						</xPositionCurve>
+						
+						<zPositionCurve Class="SmashTools.BezierCurve">
+							<points>
+								<li>(0, 0)</li>
+								<li>(0.1, 1)</li>
+								<li>(0.15, 2)</li>
+								<li>(0.3, 6)</li>
+								<li>(0.5, 12)</li>
+								<li>(0.7, 40)</li>
+								<li>(0.9, 120)</li>
+								<li>(1, 250)</li>
+							</points>
+						</zPositionCurve>
+
+						<fleckData><li>
+							<def>DustPuff</def>
+							<angle>0~360</angle>
+							<runOutOfStep>false</runOutOfStep>
+							<lockFleckX>false</lockFleckX>
+							<originOffset>(0, 0, 0)</originOffset>
+							
+							<drawOffset Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 0)</li>
+									<li>(0.1, 1)</li>
+									<li>(0.15, 2)</li>
+									<li>(0.3, 6)</li>
+									<li>(0.5, 12)</li>
+								</points>
+							</drawOffset>
+							
+							<frequency Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 160)</li>
+									<li>(0.5, 0)</li>
+								</points>
+							</frequency>
+							
+							<rotationRate>
+								<points>
+									<li>(0, 3)</li>
+									<li>(1, 1)</li>
+								</points>
+							</rotationRate>
+							
+							<size Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 4.5)</li>
+									<li>(0.1, 2.64)</li>
+									<li>(0.15, 1.56)</li>
+									<li>(0.5, 1)</li>
+								</points>
+							</size>
+							
+							<speed>
+								<points>
+									<li>(0, 6)</li>
+									<li>(1, 3)</li>
+								</points>
+							</speed>
+						</li></fleckData>
+					</launchProperties>
+					
+					<landingProperties>
+						<maxTicks>800</maxTicks>
+						<rotationCurve Class="SmashTools.BezierCurve">
+							<points>
+								<li>(0, 20)</li>
+								<li>(0.5, 0)</li>
+								<li>(1, 0)</li>
+							</points>
+						</rotationCurve>
+						
+						<xPositionCurve Class="SmashTools.BezierCurve">
+							<points>
+								<li>(0, -60)</li>
+								<li>(0.2, -30)</li>
+								<li>(0.4, -10)</li>
+								<li>(0.5, 0)</li>
+								<li>(1, 0)</li>
+							</points>
+						</xPositionCurve>
+						
+						<zPositionCurve Class="SmashTools.BezierCurve">
+							<points>
+								<li>(0, 250)</li>
+								<li>(0.1, 120)</li>
+								<li>(0.3, 40)</li>
+								<li>(0.5, 12)</li>
+								<li>(0.7, 6)</li>
+								<li>(0.85, 2)</li>
+								<li>(0.9, 1)</li>
+								<li>(1, 0)</li>
+							</points>
+						</zPositionCurve>
+						
+						<fleckData><li>
+							<def>DustPuff</def>
+							<angle>0~360</angle>
+							<runOutOfStep>false</runOutOfStep>
+							<lockFleckX>false</lockFleckX>
+							<originOffset>(0, 0, 0)</originOffset>
+							
+							<drawOffset Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0.5, 12)</li>
+									<li>(0.7, 6)</li>
+									<li>(0.85, 2)</li>
+									<li>(0.9, 1)</li>
+									<li>(1, 0)</li>
+								</points>
+							</drawOffset>
+							
+							<frequency Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0.5, 0)</li>
+									<li>(1, 160)</li>
+								</points>
+							</frequency>
+							
+							<rotationRate>
+								<points>
+									<li>(0, 3)</li>
+									<li>(1, 1)</li>
+								</points>
+							</rotationRate>
+							
+							<size Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0.5, 1)</li>
+									<li>(0.8, 1.56)</li>
+									<li>(0.9, 2.5)</li>
+									<li>(1, 3)</li>
+								</points>
+							</size>
+							
+							<speed>
+								<points>
+									<li>(0, 3)</li>
+									<li>(1, 6)</li>
+								</points>
+							</speed>
+						</li></fleckData>
+					</landingProperties>
+				</launchProtocol>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>OSVehicles_Janus_Turret</turretDef>
+						
+						<renderProperties>
+							<north>(0, 1.60)</north>
+							<south>(0, 1.60)</south>
+							<east>(0, 1.60)</east>
+						</renderProperties>
+						<drawLayer>-2</drawLayer>
+						
+						<gizmoLabel>Janus Array</gizmoLabel>
+						
+						<aimPieOffset>(0, 1.6)</aimPieOffset>
+						<key>mainTurret</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+	
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>OSVehicles_Janus_Turret</defName>
+		<label>Janus Array</label>
+		<description>A broadcasting array that amplifies hazardous signals to induce debilitating effects. .</description>
+		
+		<turretType>Rotatable</turretType>
+		<shotSound>MechanoidsWakeUp</shotSound>
+		<!-- reloadSound>Interact_ChargeRifle</reloadSound -->
+		
+		<projectile>Bullet_MJJanus</projectile>
+		<!-- reloadTimer>2.5</reloadTimer -->
+		<warmUpTimer>2.5</warmUpTimer>
+		<genericAmmo>false</genericAmmo>
+		
+		<autoSnapTargeting>true</autoSnapTargeting>
+		<!-- <rotationSpeed>1.5</rotationSpeed> -->
+		
+		<projectileOffset>2.9</projectileOffset>
+		<hitFlags>IntendedTarget</hitFlags>
+		<maxRange>124.9</maxRange>
+		<!-- minRange>0.9</minRange -->
+
+		<cooldown>
+			<heatPerShot>20</heatPerShot>
+			<dissipationRate>0.16666</dissipationRate> <!-- 10 per second -->
+		</cooldown>
+		
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
+		
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>25</ticksBetweenBursts>
+				<label>Cycling</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Building/Misc/DropBeacon</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(0.1, 0.1)</drawSize>
+		</graphicData>
+
+		<motes>
+			<li>
+				<cycles>1</cycles>
+				<moteDef>Mote_MJEnergyCannonFlash</moteDef>
+				<animationType>Reset</animationType>
+			</li>
+		</motes>
+	</Vehicles.VehicleTurretDef>
+
+</Defs>

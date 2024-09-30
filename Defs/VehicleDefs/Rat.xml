@@ -5,7 +5,7 @@
 	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
     <defName>MJ_RatBlueprint</defName>
     <label>Rat</label>
-    <description>A motorised carriage designed to power and carry a robotic sentry turret. Small, cheap, and poorly armored, it is unlikely to provide much survivability; most are created as mobile defences, or with the intent of being scattered across a battlefield.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Passenger x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+    <description>A motorised carriage designed to carry a robotic sentry turret. Small, cheap, and poorly armored, it is unlikely to provide much survivability; most are created as mobile defences, or with the intent of being scattered across a battlefield.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Passenger x1\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
     <graphicData>
       <texPath>Things/Vehicles/Rat/Rat</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -320,6 +320,9 @@
 						<key>mainTurret</key>
 					</li>
 				</turrets>
+			</li>
+			<li Class="Vehicles.CompProperties_UpgradeTree">
+				<def>OSVehicles_Rat_UpgradeTree</def>
 			</li>
 		</comps>
 	</Vehicles.VehicleDef>

@@ -508,6 +508,10 @@
 					</li>
 				</turrets>
 			</li>
+
+			<li Class="Vehicles.CompProperties_UpgradeTree">
+				<def>OSVehicles_Cyra_UpgradeTree</def>
+			</li>
 		</comps>
 	</Vehicles.VehicleDef>
 

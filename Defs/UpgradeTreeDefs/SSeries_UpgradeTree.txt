@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<Vehicles.UpgradeTreeDef>
+		<defName>MJ_GenericTurret_UpgradeTree</defName>
+		<nodes>
+			<li>
+				<key>LandLegs</key>
+				<label>Terrestrial Servomotors</label>
+				<description>Install reinforced leg assemblies capable of continuous travel on firm surfaces.</description>
+				<icon>UI/Icons/HostilityResponse/Flee</icon>
+				<work>5500</work>
+				<gridCoordinate>(3,0)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.VehicleUpgrade">
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>GunTurrets</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>110</Steel>
+					<Plasteel>80</Plasteel
+					<ComponentIndustrial>6</ComponentIndustrial>
+				</ingredients>
+			</li>
+		</nodes>
+	</Vehicles.UpgradeTreeDef>
+</Defs>

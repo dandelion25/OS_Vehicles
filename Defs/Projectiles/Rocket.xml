@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FleckDef ParentName = "FleckBase_Thrown">
+    <defName>OSVehicles_RocketSmoke</defName>
+    <graphicData>
+      <texPath>Things/Mote/Smoke</texPath>
+      <renderInstanced>true</renderInstanced>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>1</fadeInTime>
+    <solidTime>4.5</solidTime>
+    <fadeOutTime>2.5</fadeOutTime>
+    <growthRate>0.01</growthRate>
+  </FleckDef>
+
+  <FleckDef ParentName = "FleckBase_Thrown">
+    <defName>OSVehicles_RocketExhaust</defName>
+    <graphicData>
+      <texPath>Things/Mote/FireGlow</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <altitudeLayer>MoteOverheadLow</altitudeLayer>
+    <solidTime>0.03</solidTime>
+    <fadeOutTime>0.15</fadeOutTime>
+  </FleckDef>
+
+  <EffecterDef>
+    <defName>OSVehicles_RocketEffecter</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>OSVehicles_RocketSmoke</fleckDef>
+        <chancePerTick>1</chancePerTick>
+        <speed>0.01</speed>
+        <scale>1.2~1.5</scale>
+        <angle>-30~30</angle>
+        <!-- COMMENT : rn this is being used to modulate chancePerTick over DistanceCoveredFraction.  -->
+        <!-- [ chancePerTick_actual : chancePerTick + positionLerpFactor * DistanceCoveredFraction  ] -->
+        <!-- The calculation is tolerant of numbers outside -1~1; do this for mid-trajectory cutoffs! -->
+        <positionLerpFactor>-1</positionLerpFactor>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>OSVehicles_RocketExhaust</fleckDef>
+        <chancePerTick>0.5</chancePerTick>
+        <speed>0.008~0.012</speed>
+        <scale>0.8~1.0</scale>
+        <angle>-9~9</angle>
+        <!-- see above comment. -->
+        <positionLerpFactor>-3</positionLerpFactor>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <ThingDef>
+    <defName>Proj_MJOnager</defName>
+    <label>rocket</label>
+    <thingClass>OutlanderVehicles.Projectile_Explosive_LandedEffecterMoteTrail</thingClass>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <texPath>Things/Projectile/Rocket_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile>
+      <flyOverhead>true</flyOverhead>
+      <damageDef>Bomb</damageDef>
+      <explosionRadius>2.9</explosionRadius>
+      <damageAmountBase>24</damageAmountBase>
+      <armorPenetrationBase>0.5</armorPenetrationBase>
+      <speed>35</speed>
+      <arcHeightFactor>12</arcHeightFactor>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>Explosion_Rocket</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <!-- REPURPOSED BY THINGCLASS : used by Projectile_Explosive_LandedEffecterMoteTrail to do things, check for issues -->
+      <landedEffecter>OSVehicles_RocketEffecter</landedEffecter>
+    </projectile>
+    <drawOffscreen>true</drawOffscreen>
+  </ThingDef>
+
+</Defs>

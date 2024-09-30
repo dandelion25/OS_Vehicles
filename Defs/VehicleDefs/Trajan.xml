@@ -101,13 +101,13 @@
 		<properties>
 			<diagonalRotation>false</diagonalRotation>
 			<!-- defaultBiomesImpassable>true</defaultBiomesImpassable -->
-			<defaultTerrainImpassable>true</defaultTerrainImpassable>
-			<customTerrainCosts>
-				<li><key>MJ_StructureCell</key><value>1</value></li>
+			<!-- defaultTerrainImpassable>true</defaultTerrainImpassable -->
+			<customTerrainCosts PathCost="10000">
+				<li><key>MJ_StructureCell</key><value>-9999</value></li>
 			</customTerrainCosts>
 			<winterSpeedMultiplier>0</winterSpeedMultiplier>
 			<worldSpeedMultiplier>1</worldSpeedMultiplier>
-			<offRoadMultiplier>0.1</offRoadMultiplier>
+			<!-- offRoadMultiplier>1</offRoadMultiplier -->
 			<vehicleJobLimitations>
 				<li>(RepairVehicle, 2)</li>
 			</vehicleJobLimitations>
@@ -257,216 +257,9 @@
 
 		<comps>
 			<li Class="Vehicles.CompProperties_UpgradeTree">
-				<def>MJ_GenericTurret_UpgradeTree</def>
+				<def>OSVehicles_Trajan_UpgradeTree</def>
 			</li>
 		</comps>
 	</Vehicles.VehicleDef>
-
-
-<!-- Upgrade tree for vanilla-esque turrets -->
-
-	<Vehicles.UpgradeTreeDef>
-		<defName>MJ_GenericTurret_UpgradeTree</defName>
-		<nodes>
-			<li>
-				<key>MicroTurret</key>
-				<label>Mini-turret</label>
-				<description>Install a mini-turret assembly.</description>
-				<icon>Things/Vehicles/Shared/SharedMicroturret</icon>
-				<work>1500</work>
-				<gridCoordinate>(3,0)</gridCoordinate>
-				<upgrades>
-					<li Class="Vehicles.TurretUpgrade">
-						<turrets>
-							<li>
-								<turretDef>SharedMicroturret</turretDef>
-								<renderProperties>
-									<north>(0, 0.5)</north>
-									<south>(0,0.5)</south>
-									<east>(0,0.5)</east>
-								</renderProperties>
-								<gizmoLabel>Mini-turret gun</gizmoLabel>
-								<aimPieOffset>(0, 0.35)</aimPieOffset>
-								<key>MicroTurret</key>
-							</li>
-						</turrets>
-						<removeTurrets>
-							<li>FoamTurret</li>
-							<li>AutocannonTurret</li>
-							<li>UraniumSlugTurret</li>
-							<li>RocketswarmTurret</li>
-						</removeTurrets>
-					</li>
-				</upgrades>
-				<researchPrerequisites>
-					<li>GunTurrets</li>
-				</researchPrerequisites>
-				<ingredients>
-					<Steel>50</Steel>
-					<ComponentIndustrial>2</ComponentIndustrial>
-				</ingredients>
-			</li>
-
-			<li>
-				<key>AutocannonTurret</key>
-				<label>Autocannon Turret</label>
-				<description>Install an autocannon assembly.</description>
-				<icon>Things/Building/Security/TurretAutocannon_MenuIcon</icon>
-				<work>12000</work>
-				<gridCoordinate>(3,5)</gridCoordinate>
-				<upgrades>
-					<li Class="Vehicles.TurretUpgrade">
-						<turrets>
-							<li>
-								<turretDef>MJ_SharedAutocannonTurret</turretDef>
-								<renderProperties>
-									<north>(0, 0.5)</north>
-									<south>(0,0.5)</south>
-									<east>(0,0.5)</east>
-								</renderProperties>
-								<gizmoLabel>Autocannon</gizmoLabel>
-								<aimPieOffset>(0.35, 0)</aimPieOffset>
-								<key>AutocannonTurret</key>
-							</li>
-						</turrets>
-						<removeTurrets>
-							<li>FoamTurret</li>
-							<li>MicroTurret</li>
-							<li>UraniumSlugTurret</li>
-							<li>RocketswarmTurret</li>
-						</removeTurrets>
-					</li>
-				</upgrades>
-				<researchPrerequisites>
-					<li>HeavyTurrets</li>
-				</researchPrerequisites>
-				<ingredients>
-					<Steel>210</Steel>
-					<Plasteel>40</Plasteel>
-					<ComponentIndustrial>5</ComponentIndustrial>
-				</ingredients>
-			</li>
-
-			<li>
-				<key>UraniumSlugTurret</key>
-				<label>Uranium Slug Turret</label>
-				<description>Install a sniper turret assembly.</description>
-				<icon>Things/Building/Security/TurretSniper_MenuIcon</icon>
-				<work>12000</work>
-				<gridCoordinate>(3,10)</gridCoordinate>
-				<upgrades>
-					<li Class="Vehicles.TurretUpgrade">
-						<turrets>
-							<li>
-								<turretDef>MJ_SharedUraniumSlugTurret</turretDef>
-								<renderProperties>
-									<north>(0, 0.5)</north>
-									<south>(0,0.5)</south>
-									<east>(0,0.5)</east>
-								</renderProperties>
-								<gizmoLabel>Uranium slug cannon</gizmoLabel>
-								<aimPieOffset>(0.35, 0)</aimPieOffset>
-								<key>UraniumSlugTurret</key>
-							</li>
-						</turrets>
-						<removeTurrets>
-							<li>FoamTurret</li>
-							<li>MicroTurret</li>
-							<li>AutocannonTurret</li>
-							<li>RocketswarmTurret</li>
-						</removeTurrets>
-					</li>
-				</upgrades>
-				<researchPrerequisites>
-					<li>SniperTurret</li>
-				</researchPrerequisites>
-				<ingredients>
-					<Steel>170</Steel>
-					<Plasteel>30</Plasteel>
-					<Uranium>60</Uranium>
-					<ComponentIndustrial>5</ComponentIndustrial>
-				</ingredients>
-			</li>
-			<li>
-				<key>FoamTurret</key>
-				<label>Foam Turret</label>
-				<description>Install a foam sprayer.</description>
-				<icon>Things/Building/Security/TurretFoam_MenuIcon</icon>
-				<work>1500</work>
-				<gridCoordinate>(3,15)</gridCoordinate>
-				<upgrades>
-					<li Class="Vehicles.TurretUpgrade">
-						<turrets>
-							<li>
-								<turretDef>MJ_SharedFoamTurret</turretDef>
-								<renderProperties>
-									<north>(0, 0.5)</north>
-									<south>(0,0.5)</south>
-									<east>(0,0.5)</east>
-								</renderProperties>
-								<gizmoLabel>Foam sprayer</gizmoLabel>
-								<aimPieOffset>(0.35, 0)</aimPieOffset>
-								<key>FoamTurret</key>
-							</li>
-						</turrets>
-						<removeTurrets>
-							<li>UraniumSlugTurret</li>
-							<li>MicroTurret</li>
-							<li>AutocannonTurret</li>
-							<li>RocketswarmTurret</li>
-						</removeTurrets>
-					</li>
-				</upgrades>
-				<researchPrerequisites>
-					<li>FoamTurret</li>
-				</researchPrerequisites>
-				<ingredients>
-					<Steel>60</Steel>
-					<ComponentIndustrial>2</ComponentIndustrial>
-					<Chemfuel>140</Chemfuel>
-				</ingredients>
-			</li>
-			<li>
-				<key>RocketswarmTurret</key>
-				<label>Rocketswarm Launcher</label>
-				<description>Install a rocketswarm launcher.</description>
-				<icon>Things/Building/Security/TurretRocket_MenuIcon</icon>
-				<work>8000</work>
-				<gridCoordinate>(3,20)</gridCoordinate>
-				<upgrades>
-					<li Class="Vehicles.TurretUpgrade">
-						<turrets>
-							<li>
-								<turretDef>MJ_SharedRocketswarmTurret</turretDef>
-								<renderProperties>
-									<north>(0, 0.5)</north>
-									<south>(0,0.5)</south>
-									<east>(0,0.5)</east>
-								</renderProperties>
-								<gizmoLabel>Rocketswarm launcher</gizmoLabel>
-								<aimPieOffset>(0.35, 0)</aimPieOffset>
-								<key>RocketswarmTurret</key>
-							</li>
-						</turrets>
-						<removeTurrets>
-							<li>FoamTurret</li>
-							<li>MicroTurret</li>
-							<li>AutocannonTurret</li>
-							<li>UraniumSlugTurret</li>
-						</removeTurrets>
-					</li>
-				</upgrades>
-				<researchPrerequisites>
-					<li>RocketswarmLauncher</li>
-				</researchPrerequisites>
-				<ingredients>
-					<Steel>150</Steel>
-					<Plasteel>20</Plasteel>
-					<ComponentIndustrial>2</ComponentIndustrial>
-					<Chemfuel>180</Chemfuel>
-				</ingredients>
-			</li>
-		</nodes>
-	</Vehicles.UpgradeTreeDef>
 
 </Defs>

@@ -40,7 +40,7 @@
   <ResearchProjectDef>
     <defName>VehicularAutonomy</defName>
     <label>vehicular autonomy</label>
-    <description>Assemble ratcores and ratcore-based vehicles capable of autonomous movement and targeting. Mechanoid corpses and advanced components are required to assemble ratcores.</description>
+    <description>Assemble ratcores and ratcore-based vehicles capable of autonomous movement and targeting. Ratcore assemblies can be constructed from the remains of dead mechanoids.</description>
     <tab>MJ_Outlander</tab>
     <baseCost>1500</baseCost>
     <techLevel>Industrial</techLevel>
@@ -55,6 +55,24 @@
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
     <researchViewX>0.00</researchViewX>
+    <researchViewY>0.40</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>MachineEcology</defName>
+    <label>machine ecology</label>
+    <description>Observe free signal evolution to develop an basic understanding of machine behavior.</description>
+    <tab>MJ_Outlander</tab>
+    <baseCost>750</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>VehicularAutonomy</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MJ_CorrelatorNode</li>
+    </requiredResearchFacilities>
+    <researchViewX>1.00</researchViewX>
     <researchViewY>0.40</researchViewY>
   </ResearchProjectDef>
 
@@ -74,7 +92,7 @@
       <li>MJ_CorrelatorNode</li>
     </requiredResearchFacilities>
     <researchViewX>1.00</researchViewX>
-    <researchViewY>0.40</researchViewY>
+    <researchViewY>0.80</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

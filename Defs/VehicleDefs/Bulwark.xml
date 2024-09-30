@@ -125,6 +125,7 @@
 
 					<turretIds>
 						<li>mainTurret</li>
+						<li>pintleLMG</li>
 					</turretIds>
 				</li>
 				<li>
@@ -137,6 +138,8 @@
 					
 					<turretIds>
 						<li>mgCupola</li>
+						<li>ionEffecter</li>
+						<li>peregrineArray</li>
 					</turretIds>
 				</li>
 			</roles>
@@ -370,7 +373,7 @@
 							<south>(0, 0.10)</south>
 							<east>(-0.05, 0.525)</east>
 						</renderProperties>
-						
+						<drawLayer>2</drawLayer> <!-- drawLayer is 1 by default -->
 						<gizmoLabel>Machine Gun</gizmoLabel>
 						
 						<angleRestricted/>
@@ -379,6 +382,10 @@
 						<key>mgCupola</key>
 					</li>
 				</turrets>
+			</li>
+
+			<li Class="Vehicles.CompProperties_UpgradeTree">
+				<def>OSVehicles_Bulwark_UpgradeTree</def>
 			</li>
 		</comps>
 	</Vehicles.VehicleDef>
@@ -393,8 +400,8 @@
 		<reloadSound>Interact_SMG</reloadSound>
 		
 		<projectile>Bullet_MJShredder</projectile>
-		<reloadTimer>4.6</reloadTimer>
-		<warmUpTimer>2.1</warmUpTimer>
+		<reloadTimer>3.5</reloadTimer>
+		<warmUpTimer>1.2</warmUpTimer>
 		<magazineCapacity>15</magazineCapacity>
 		<chargePerAmmoCount>5</chargePerAmmoCount>
 		<genericAmmo>true</genericAmmo>

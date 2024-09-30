@@ -7,15 +7,17 @@
     <description>An unpredictable condition caused by ambient parameter leakage from correlator nodes.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.8, 1, 0.95)</defaultLabelColor>
+    <initialSeverity>0.05</initialSeverity>
+    <maxSeverity>1</maxSeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-1</severityPerDay>
+        <severityPerDay>-0.5</severityPerDay>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
     </comps>
     <stages>
       <li><label>initial</label><becomeVisible>false</becomeVisible></li>
-      <li><label>initial</label><minSeverity>0.05</minSeverity>
+      <li><label>initial</label><minSeverity>0.25</minSeverity>
         <capMods><li>
             <capacity>Consciousness</capacity>
             <offset>0.05</offset>

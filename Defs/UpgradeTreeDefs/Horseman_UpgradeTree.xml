@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<Vehicles.UpgradeTreeDef>
+		<defName>OSVehicles_Horseman_UpgradeTree</defName>
+		<nodes>
+			<li>
+				<key>AutomatedFire</key>
+				<label>Automated Targeting</label>
+				<description>Test and implement tamper-resistant ally recognition systems, enabling use of the vehicle's autonomous targeting function.</description>
+				<icon>UI/Commands/Attack</icon>
+				<work>8000</work>
+				<gridCoordinate>(3,0)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.VehicleUpgrade">
+						<roles>
+							<li>
+								<key>gunner</key>
+								<editKey>passenger</editKey>
+								<handlingTypes></handlingTypes>
+								<slotsToOperate>0</slotsToOperate>
+								<turretIds></turretIds>
+							</li>
+						</roles>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>MachineEcology</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Gold>12</Gold>
+				</ingredients>
+			</li>
+			<li>
+				<key>OnagerTurret</key>
+				<label>Onager</label>
+				<description>Refit the vehicle with an explosive rocket mortar.</description>
+				<icon>Things/Vehicles/Horseman/Onager_Turret_icon</icon>
+				<work>5000</work>
+				<gridCoordinate>(8,0)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>OSVehicles_OnagerTurret</turretDef>
+								<renderProperties>
+									<north>(0, 0.40)</north>
+									<south>(0, 0.40)</south>
+									<east>(0, 0.40)</east>
+								</renderProperties>
+								<gizmoLabel>Rocket mortar</gizmoLabel>
+								<aimPieOffset>(0, 0.85)</aimPieOffset>
+								<key>onagerTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>RocketswarmLauncher</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>60</Steel>
+					<ComponentIndustrial>4</ComponentIndustrial>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>NegatorTurret</li>
+					<li>CirceTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+			<li>
+				<key>NegatorTurret</key>
+				<label>Negator</label>
+				<description>Refit the vehicle with a heavy charge railgun.</description>
+				<icon>Things/Vehicles/Horseman/Negator_Turret_icon</icon>
+				<work>5000</work>
+				<gridCoordinate>(8,5)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>OSVehicles_NegatorTurret</turretDef>
+								<renderProperties>
+									<north>(0, 0.40)</north>
+									<south>(0, 0.40)</south>
+									<east>(0, 0.40)</east>
+								</renderProperties>
+								<gizmoLabel>Charge railgun</gizmoLabel>
+								<aimPieOffset>(0, 1.25)</aimPieOffset>
+								<key>negatorTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>ChargedShot</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>120</Steel>
+					<ComponentSpacer>2</ComponentSpacer>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>OnagerTurret</li>
+					<li>CirceTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+			<li>
+				<key>CirceTurret</key>
+				<label>Hekate</label>
+				<description>Refit the vehicle with a powerful ion effecter.</description>
+				<icon>Things/Vehicles/Circe/Circe_Turret</icon>
+				<work>7500</work>
+				<gridCoordinate>(8,10)</gridCoordinate>
+				<upgrades>
+					<li Class="Vehicles.TurretUpgrade">
+						<turrets>
+							<li>
+								<turretDef>Circe_Turret</turretDef>
+								<renderProperties>
+									<north>(0, 0.45)</north>
+									<south>(0, 0.45)</south>
+									<east>(0, 0.45)</east>
+								</renderProperties>
+								<gizmoLabel>Ion effecter</gizmoLabel>
+								<aimPieOffset>(0, 1)</aimPieOffset>
+								<key>ionTurret</key>
+							</li>
+						</turrets>
+						<removeTurrets>
+							<li>mainTurret</li>
+						</removeTurrets>
+					</li>
+				</upgrades>
+				<researchPrerequisites>
+					<li>ChargedShot</li>
+				</researchPrerequisites>
+				<ingredients>
+					<Steel>60</Steel>
+					<ComponentIndustrial>2</ComponentIndustrial>
+					<ComponentSpacer>1</ComponentSpacer>
+				</ingredients>
+				<disableIfUpgradeNodesEnabled>
+					<li>NegatorTurret</li>
+					<li>OnagerTurret</li>
+				</disableIfUpgradeNodesEnabled>
+			</li>
+		</nodes>
+	</Vehicles.UpgradeTreeDef>
+
+
+
+
+
+
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>OSVehicles_OnagerTurret</defName>
+		<label>Onager Turret</label>
+		<description>A computerized turret containing a guided rocket mortar.</description>
+		
+		<turretType>Rotatable</turretType>
+		<shotSound>RocketswarmLauncher_Fire</shotSound>
+		<reloadSound>VehicleCabinetFiddleNoise</reloadSound>
+		
+		<projectile>Proj_MJOnager</projectile>
+		<reloadTimer>2.5</reloadTimer>
+		<warmUpTimer>0.5</warmUpTimer>
+		<magazineCapacity>12</magazineCapacity>
+		<chargePerAmmoCount>15</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.5</rotationSpeed>
+		
+		<cooldown>
+			<heatPerShot>4</heatPerShot>
+			<dissipationRate>0.01667</dissipationRate> <!-- 1 per second -->
+		</cooldown>
+
+		<projectileOffset>-0.125</projectileOffset>
+		<projectileShifting>
+			<li>0.375</li>
+		</projectileShifting>
+		<hitFlags>IntendedTarget</hitFlags>
+		<maxRange>45.9</maxRange>
+		<minRange>8.9</minRange>
+		
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
+		
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>100</ticksBetweenBursts>
+				<spreadRadius>1.9</spreadRadius>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>22</ticksBetweenShots>
+				<ticksBetweenBursts>220</ticksBetweenBursts>
+				<spreadRadius>3.9</spreadRadius>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Horseman/Onager_Turret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(4.0, 4.0)</drawSize>
+		</graphicData>
+		
+		<ammunition>
+			<thingDefs>
+				<li>Chemfuel</li>
+			</thingDefs>
+		</ammunition>
+	</Vehicles.VehicleTurretDef>
+
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>OSVehicles_NegatorTurret</defName>
+		<label>Negator Turret</label>
+		<description>A computerized turret mounting a heavy charged-shot railcannon.</description>
+		
+		<turretType>Rotatable</turretType>
+		<shotSound>Shot_TurretSniper</shotSound>
+		<reloadSound>Interact_ChargeRifle</reloadSound>
+		
+		<projectile>Bullet_MJNegator</projectile>
+		<reloadTimer>2.5</reloadTimer>
+		<warmUpTimer>0.5</warmUpTimer>
+		<magazineCapacity>8</magazineCapacity>
+		<chargePerAmmoCount>0.5</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>1.5</rotationSpeed>
+		
+		<projectileOffset>1.25</projectileOffset>
+		<hitFlags>IntendedTarget</hitFlags>
+		<maxRange>64.9</maxRange>
+		<minRange>10.9</minRange>
+		
+		<attachProjectileFlag>MJ_FlatBullet</attachProjectileFlag>
+		
+		<recoil>
+			<distanceTotal>0.1</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		
+		<vehicleRecoil>
+			<distanceTotal>0.1</distanceTotal>
+			<distancePerTick>0.05</distancePerTick>
+			<speedMultiplierPostRecoil>0.08</speedMultiplierPostRecoil>
+		</vehicleRecoil>
+
+		<cooldown>
+			<heatPerShot>10</heatPerShot>
+			<dissipationRate>0.01667</dissipationRate> <!-- 1 per second -->
+		</cooldown>
+		
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
+				<label>Single shot</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+		</fireModes>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Horseman/Negator_Turret</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(5, 5)</drawSize>
+		</graphicData>
+		
+		<ammunition>
+			<thingDefs>
+				<li>Uranium</li>
+			</thingDefs>
+		</ammunition>
+		<motes>
+			<li>
+				<cycles>1</cycles>
+				<moteDef>Mote_MJEnergyCannonFlash</moteDef>
+				<animationType>Reset</animationType>
+			</li>
+		</motes>
+	</Vehicles.VehicleTurretDef>
+</Defs>
