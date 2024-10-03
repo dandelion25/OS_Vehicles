@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <Defs>
+
+  <HediffDef MayRequire="Ludeon.Rimworld.Biotech">
+    <defName>OSVehicles_SignalRelay</defName>
+    <hediffClass>OutlanderVehicles.Hediff_MechCommandRelay</hediffClass>
+    <label>mechanoid relay (tuned)</label>
+    <description>This mechanitor is tuned to a mechanoid relay.</description>
+    <isBad>false</isBad>
+  </HediffDef>
+
+
   <HediffDef>
     <defName>MJ_CorrelatorHediff</defName>
     <label>tonal affliction</label>
@@ -16,8 +26,8 @@
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
     </comps>
     <stages>
-      <li><label>initial</label><becomeVisible>false</becomeVisible></li>
-      <li><label>initial</label><minSeverity>0.25</minSeverity>
+      <li><label>initial</label><minSeverity>0</minSeverity><becomeVisible>false</becomeVisible></li>
+      <li><label>initial</label><minSeverity>0.10</minSeverity>
         <capMods><li>
             <capacity>Consciousness</capacity>
             <offset>0.05</offset>

@@ -20,14 +20,14 @@
 						</vehicleStats>
 						<statCategories>
 							<li><def>OffRoadMultiplier</def><value>1</value><type>Set</type></li>
-							<li><def>WinterCostMultiplier</def><value>0</value><type>Set</type></li>
+							<li><def>WinterCostMultiplier</def><value>0.2</value><type>Set</type></li>
 							<li><def>WorldSpeedMultiplier</def><value>0.5</value><type>Add</type></li>
 						</statCategories>
 					</li>
 					<li Class="Vehicles.VehicleUpgrade">
 						<health>
-							<li><key>LeftTrack</key><value>120</value><type>Set</type></li>
-							<li><key>RightTrack</key><value>120</value><type>Set</type></li>
+							<li><key>LeftTrack</key><value>210</value><type>Set</type></li>
+							<li><key>RightTrack</key><value>210</value><type>Set</type></li>
 						</health>
 						<armor>
 							<li>
@@ -84,7 +84,7 @@
 								<turretDef>SharedMicroturret</turretDef>
 								<renderProperties>
 									<north>(0, 0.55)</north>
-									<south>(0, -0.9)</south>
+									<south>(0, 0.1)</south>
 									<east>(-0.05, 0.525)</east>
 								</renderProperties>
 								<drawLayer>3</drawLayer> <!-- drawLayer is 1 by default -->
@@ -155,7 +155,7 @@
 								<turretDef>OSVehicles_PeregrineArray</turretDef>
 								<renderProperties>
 									<north>(0, 0.55)</north>
-									<south>(0, -0.9)</south>
+									<south>(0, 0.1)</south>
 									<east>(-0.05, 0.525)</east>
 								</renderProperties>
 								<drawLayer>1</drawLayer> <!-- note: drawLayer is 1 by default -->
@@ -167,7 +167,7 @@
 								<turretDef>Circe_Turret</turretDef>
 								<renderProperties>
 									<north>(0, 0.55)</north>
-									<south>(0, -0.9)</south>
+									<south>(0, 0.1)</south>
 									<east>(-0.05, 0.525)</east>
 								</renderProperties>
 								<drawLayer>2</drawLayer>
@@ -178,7 +178,6 @@
 						</turrets>
 						<removeTurrets>
 							<li>mgCupola</li>
-							<!-- li>microTurret</li -->
 						</removeTurrets>
 					</li>
 				</upgrades>

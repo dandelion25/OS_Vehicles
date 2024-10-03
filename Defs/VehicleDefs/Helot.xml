@@ -345,7 +345,7 @@
 				<hitPoints>80</hitPoints>
 				<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
 				<chargeDurationTicks>120</chargeDurationTicks><!-- 2s -->
-				<drawWithNoSelection>True</drawWithNoSelection>
+				<drawWithNoSelection>False</drawWithNoSelection>
 				<disarmedByEmpForTicks>240</disarmedByEmpForTicks>
 				<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
 				<idlePulseSpeed>3</idlePulseSpeed>

@@ -9,7 +9,7 @@
     <graphicData>
       <texPath>Things/Vehicles/Janus/Janus</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(4,7)</drawSize>
+      <drawSize>(7,7)</drawSize>
     </graphicData>
 	
     <size>(3,3)</size>
@@ -22,6 +22,7 @@
 	
     <researchPrerequisites>
       <li>MachineEcology</li>
+      <li>FlightControl</li>
     </researchPrerequisites>
 	
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
@@ -46,7 +47,7 @@
 			<texPath>Things/Vehicles/Janus/Janus</texPath>
 			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
 			<shaderType>CutoutComplexPattern</shaderType>
-			<drawSize>(4,7)</drawSize>
+			<drawSize>(7,7)</drawSize>
 		</graphicData>
 		
 		<fillPercent>0.8</fillPercent>
@@ -58,7 +59,7 @@
 		<vehicleMovementPermissions>NoDriverNeeded</vehicleMovementPermissions>
 		<vehicleCategory>Combat</vehicleCategory>
 		<techLevel>Spacer</techLevel>
-		<vehicleType>Land</vehicleType>
+		<vehicleType>Air</vehicleType>
 		
 		<statBases>
 			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
@@ -74,6 +75,7 @@
 			<CargoCapacity>150</CargoCapacity>
 			<RepairRate>2.0</RepairRate>
 			<AccelerationRate MayRequire="oskarpotocki.vanillavehiclesexpanded">0.75</AccelerationRate>
+			<FlightSpeed>8</FlightSpeed>
 		</vehicleStats>
 		
 		<soundSustainersOnEvent>
@@ -107,7 +109,7 @@
 		</race>
 		
 		<properties>
-			<diagonalRotation>false</diagonalRotation>
+			<!-- diagonalRotation>false</diagonalRotation -->
 			<customRoadCosts AssignDefaults = "0.5" />
 			<vehicleJobLimitations>
 				<li>(RepairVehicle, 2)</li>
@@ -492,18 +494,27 @@
 						<turretDef>OSVehicles_Janus_Turret</turretDef>
 						
 						<renderProperties>
-							<north>(0, 1.60)</north>
-							<south>(0, 1.60)</south>
-							<east>(0, 1.60)</east>
+							<north>(0, 2)</north>
+							<south>(0, 2)</south>
+							<east>(0, 2)</east>
 						</renderProperties>
 						<drawLayer>-2</drawLayer>
 						
 						<gizmoLabel>Janus Array</gizmoLabel>
 						
-						<aimPieOffset>(0, 1.6)</aimPieOffset>
+						<aimPieOffset>(0, 1)</aimPieOffset>
 						<key>mainTurret</key>
 					</li>
 				</turrets>
+			</li>
+			<li Class="OutlanderVehicles.CompProperties_MechCommandRelay" MayRequire="Ludeon.Rimworld.Biotech">
+				<compClass>OutlanderVehicles.Comp_MechCommandRelay</compClass>
+				<untunedEffect>BandNodeUntuned</untunedEffect>
+				<tuningEffect>BandNodeTuning</tuningEffect>
+				<tunedEffect>BandNodeTuned</tunedEffect>
+				<retuningEffect>BandNodeRetuning</retuningEffect>
+				<effecterOffset>(0,0,2)</effecterOffset>
+				<tuningCompleteSound>BandNodeTuning_Complete</tuningCompleteSound>
 			</li>
 		</comps>
 	</Vehicles.VehicleDef>
@@ -531,7 +542,7 @@
 		<!-- minRange>0.9</minRange -->
 
 		<cooldown>
-			<heatPerShot>20</heatPerShot>
+			<heatPerShot>10</heatPerShot>
 			<dissipationRate>0.16666</dissipationRate> <!-- 10 per second -->
 		</cooldown>
 		
@@ -539,8 +550,9 @@
 		
 		<fireModes>
 			<li>
-				<shotsPerBurst>1</shotsPerBurst>
-				<ticksBetweenBursts>25</ticksBetweenBursts>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>10</ticksBetweenShots>
+				<ticksBetweenBursts>30</ticksBetweenBursts>
 				<label>Cycling</label>
 				<texPath>UI/Gizmos/FireRate_Auto</texPath>
 			</li>
@@ -552,14 +564,6 @@
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(0.1, 0.1)</drawSize>
 		</graphicData>
-
-		<motes>
-			<li>
-				<cycles>1</cycles>
-				<moteDef>Mote_MJEnergyCannonFlash</moteDef>
-				<animationType>Reset</animationType>
-			</li>
-		</motes>
 	</Vehicles.VehicleTurretDef>
 
 </Defs>

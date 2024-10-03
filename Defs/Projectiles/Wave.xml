@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MJJanus</defName>
+    <label>interference pulse</label>
+    <graphicData>
+      <texPath>Things/Item/NoGraphic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>OutlanderVehicles.Projectile_CorrelatorDrone</thingClass>
+    <projectile>
+      <damageDef>EMP</damageDef>
+      <!-- armor penetration used by Projectile_CorrelatorDrone to effect hediff/mentalstate application chance and severity -->
+      <armorPenetrationBase>0.2</armorPenetrationBase>
+      <explosionRadius>3.5</explosionRadius>
+      <extraDamages>
+        <li><def>Burn</def><amount>4</amount></li>
+        <li><def>Stun</def><amount>1</amount></li>
+      </extraDamages>
+      <speed>100</speed>
+      <explosionEffect>OSVehicles_Interference</explosionEffect>
+      <flyOverhead>true</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>OSVehicles_Interference</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>OSVehicles_Mote_InterferenceEffect</moteDef>
+        <burstCount>1~1</burstCount>
+        <scale>0.68~1.1</scale>
+        <!-- speed>7~14</speed -->
+        <!-- angle>135~225</angle -->
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <ThingDef ParentName="Mote_PsychicConditionCauserEffect">
+    <defName>OSVehicles_Mote_InterferenceEffect</defName>
+    <mote>
+      <solidTime>0.20</solidTime>
+      <growthRate>0.5</growthRate>
+    </mote>
+    <graphicData>
+      <shaderParameters>
+        <_distortionIntensity>0.05</_distortionIntensity>
+        <_brightnessMultiplier>1.2</_brightnessMultiplier>
+        <_distortionScale>10</_distortionScale>
+      </shaderParameters>
+      <drawSize>1</drawSize>
+    </graphicData>
+  </ThingDef>
+
+
+
+
+</Defs>

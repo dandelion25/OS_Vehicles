@@ -593,10 +593,10 @@
 				<hitPoints>20</hitPoints>
 				<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
 				<chargeDurationTicks>420</chargeDurationTicks><!-- 7s -->
-				<drawWithNoSelection>True</drawWithNoSelection>
+				<drawWithNoSelection>False</drawWithNoSelection>
 				<disarmedByEmpForTicks>240</disarmedByEmpForTicks>
 				<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
-				<idlePulseSpeed>4</idlePulseSpeed>
+				<idlePulseSpeed>1</idlePulseSpeed>
 				<minIdleAlpha>0.00</minIdleAlpha>
 			</li>
 			<!-- Middle Shield Component -->
@@ -609,10 +609,10 @@
 				<hitPoints>20</hitPoints>
 				<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
 				<chargeDurationTicks>240</chargeDurationTicks><!-- 4s -->
-				<drawWithNoSelection>True</drawWithNoSelection>
+				<drawWithNoSelection>False</drawWithNoSelection>
 				<disarmedByEmpForTicks>240</disarmedByEmpForTicks>
 				<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
-				<idlePulseSpeed>3</idlePulseSpeed>
+				<idlePulseSpeed>0.3</idlePulseSpeed>
 				<minIdleAlpha>0.00</minIdleAlpha>
 			</li>
 			<!-- Outer Shield Component -->
@@ -626,10 +626,10 @@
 				<hitPoints>20</hitPoints>
 				<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
 				<chargeDurationTicks>60</chargeDurationTicks><!-- 1s -->
-				<drawWithNoSelection>True</drawWithNoSelection>
+				<drawWithNoSelection>False</drawWithNoSelection>
 				<disarmedByEmpForTicks>240</disarmedByEmpForTicks>
 				<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
-				<idlePulseSpeed>2</idlePulseSpeed>
+				<idlePulseSpeed>0.5</idlePulseSpeed>
 				<minIdleAlpha>0.05</minIdleAlpha>
 			</li>
 		</comps>

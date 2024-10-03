@@ -151,27 +151,4 @@
   </ThingDef>
 
 
-
-  <ThingDef ParentName="BaseBullet">
-    <defName>Bullet_MJJanus</defName>
-    <label>strange noise</label>
-    <graphicData>
-      <texPath>Things/Item/NoGraphic</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <thingClass>OutlanderVehicles.Projectile_CorrelatorDrone</thingClass>
-    <projectile>
-      <damageDef>EMP</damageDef>
-      <!-- armor penetration is used by Projectile_CorrelatorDrone to effect hediff/mentalstate application chance and severity -->
-      <armorPenetrationBase>0.2</armorPenetrationBase>
-      <explosionRadius>2.5</explosionRadius>
-      <extraDamages>
-        <li><def>Burn</def><amount>4</amount></li>
-        <li><def>Stun</def><amount>1</amount></li>
-      </extraDamages>
-      <speed>1000</speed>
-    </projectile>
-  </ThingDef>
-
-
 </Defs>

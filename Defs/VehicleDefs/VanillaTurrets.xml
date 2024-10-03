@@ -63,8 +63,8 @@
 		</fireModes>
 		
 		<graphicData>
-			<texPath>Things/Building/Security/TurretAutocannon_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Vehicles/VanillaTurrets/TurretAutocannon_Top</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
 			<drawSize>2.7</drawSize>
 		</graphicData>
 		
@@ -126,8 +126,8 @@
 		</fireModes>
 		
 		<graphicData>
-			<texPath>Things/Building/Security/TurretSniper_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Vehicles/VanillaTurrets/TurretSniper_Top</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
 			<drawSize>2.7</drawSize>
 		</graphicData>
 		
@@ -142,6 +142,35 @@
 
 <!-- Foam Turret Port -->
 
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>MJ_SharedFoamTurret_Projectile</defName>
+    <label>firefoam shell</label>
+    <graphicData>
+      <texPath>Things/Projectile/FoamLong/Foam</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.85</drawSize>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Extinguish</damageDef>
+      <speed>27</speed>
+      <damageAmountBase>9999</damageAmountBase>
+      <arcHeightFactor>0.4</arcHeightFactor>
+      <armorPenetrationBase>0.8</armorPenetrationBase>
+      <stoppingPower>1</stoppingPower>
+      <shadowSize>0</shadowSize>
+      <explosionRadius>1.5</explosionRadius>
+      <soundExplode>Foam_Impact</soundExplode>
+      <postExplosionSpawnThingDef>Filth_FireFoam</postExplosionSpawnThingDef>
+      <postExplosionSpawnChance>0.5</postExplosionSpawnChance>
+      <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <explosionEffect>ExtinguisherPuffSmall</explosionEffect>
+      <soundImpact>Foam_Impact</soundImpact>
+    </projectile>
+  </ThingDef>
+
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
 		<defName>MJ_SharedFoamTurret</defName>
 		<label>foam turret</label>
@@ -151,7 +180,7 @@
 		<shotSound>Foam_Impact</shotSound>
 		<reloadSound>Interact_Rifle</reloadSound>
 		
-		<projectile>Proj_Foam</projectile>
+		<projectile>MJ_SharedFoamTurret_Projectile</projectile>
 		<reloadTimer>4.5</reloadTimer>
 		<warmUpTimer>0.1</warmUpTimer>
 		<magazineCapacity>40</magazineCapacity>
@@ -184,8 +213,8 @@
 		</fireModes>
 		
 		<graphicData>
-			<texPath>Things/Item/Equipment/WeaponRanged/TurretFoam_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Vehicles/VanillaTurrets/TurretFoam_Top</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
 			<drawSize>1.8</drawSize>
 		</graphicData>
 	</Vehicles.VehicleTurretDef>
@@ -234,8 +263,8 @@
 		</fireModes>
 		
 		<graphicData>
-			<texPath>Things/Building/Security/TurretRocketFull_Top</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Vehicles/VanillaTurrets/TurretRocketEmpty_Top</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
 			<drawSize>2.2</drawSize>
 		</graphicData>
 		

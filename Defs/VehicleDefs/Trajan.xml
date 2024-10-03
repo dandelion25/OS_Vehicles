@@ -259,6 +259,8 @@
 			<li Class="Vehicles.CompProperties_UpgradeTree">
 				<def>OSVehicles_Trajan_UpgradeTree</def>
 			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+			</li>
 		</comps>
 	</Vehicles.VehicleDef>
 
